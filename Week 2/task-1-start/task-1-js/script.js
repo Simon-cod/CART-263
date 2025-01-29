@@ -12,20 +12,8 @@ console.log(document.getElementsByTagName("p"))
 
 /***OUTPUT: 
  * 
+ * HTMLCollection(9) [p#1, p#2.img-descript, p#3.img-descript, p#4.img-descript, p#5.img-descript, p#6.img-descript, p#7.img-descript, p#8.img-descript, p#9.img-descript]
  * 
-HTMLCollection(9)
-
-0: p#1
-1: p#2.img-descript
-2: p#3.img-descript
-3: p#4.img-descript
-4: p#5.img-descript
-5: p#6.img-descript
-6: p#7.img-descript
-7: p#8.img-descript
-8: p#9.img-descript
-9: <value unavailable>
-length: 9
  * 
  */
 
@@ -34,7 +22,7 @@ length: 9
 /* 2: only the first paragraph element */
 /***CODE */
 
-console.log(document.getElementById("1"))
+console.log(document.querySelector("p"))
 
 /***OUTPUT: 
  * 
@@ -51,26 +39,45 @@ console.log(document.getElementById("1"))
 /*************************************** */
 /* 3: all elements with the class inner-container */
 /***CODE */
+
+console.log(document.getElementsByClassName("inner-container"))
+
 /***OUTPUT: 
  * 
+ * HTMLCollection(8) [div.inner-container, div.inner-container, div.inner-container, div.inner-container, div.inner-container, div.inner-container, div.inner-container, div.inner-container]
  */
 
 
 /*************************************** */
 /* 4: the last image element inside the element that has the class img-container */
 /***CODE */
+console.log(document.getElementsByClassName("img-container").length)
+console.log(document.getElementsByClassName("img-container")[7])
 /***OUTPUT: 
  * 
+ * <div class="img-container">
+                        <img class="img-image" src="task-1-images/seventeen.png">
+                    </div>
  */
 
 
 /*************************************** */
 /* 5A: all h2 elements */
+
 /* 5B: length of the list in 5A */
+
 /* 5C: the text content of the first element in the list from 5A */
 /***CODE */
+
+console.log(document.getElementsByTagName("h2"))
+console.log(document.getElementsByTagName("h2").length)
+console.log(document.getElementsByTagName("h2")[0].textContent)
+
 /***OUTPUT: 
  * 
+ * HTMLCollection [h2]
+ * 1
+ * The header of this fancy page
  */
 
 
