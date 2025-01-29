@@ -84,6 +84,9 @@ console.log(document.getElementsByTagName("h2")[0].textContent)
 /*************************************** */
 /* 6: the element with id name parent */
 /***CODE */
+
+console.log(document.getElementById("parent"))
+
 /***OUTPUT: 
  * 
  */
