@@ -7,7 +7,25 @@ console.log("we are a go!")
 /*** START PART ONE ACCESS */ 
 /* 1: all paragraph elements */
 /***CODE */
+
+console.log(document.getElementsByTagName("p"))
+
 /***OUTPUT: 
+ * 
+ * 
+HTMLCollection(9)
+
+0: p#1
+1: p#2.img-descript
+2: p#3.img-descript
+3: p#4.img-descript
+4: p#5.img-descript
+5: p#6.img-descript
+6: p#7.img-descript
+7: p#8.img-descript
+8: p#9.img-descript
+9: <value unavailable>
+length: 9
  * 
  */
 
@@ -15,8 +33,18 @@ console.log("we are a go!")
 /*************************************** */
 /* 2: only the first paragraph element */
 /***CODE */
+
+console.log(document.getElementById("1"))
+
 /***OUTPUT: 
  * 
+ * <p id="1">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias perspiciatis blanditiis, et
+                laborum praesentium earum. Enim facere, quia commodi voluptate, quis asperiores, pariatur ducimus
+                officiis non
+                quasi officia sit veniam!
+            </p>
+ *      
  */
 
 
