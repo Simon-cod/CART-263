@@ -209,15 +209,15 @@ console.log(document.getElementById("parent"))
 /*************************************** */
 /*** START PART TWO MODIFY */ 
 /*************************************** */
-/* 1: Select the first paragraph and replace the text within the paragraph... */
-/***CODE */
+// /* 1: Select the first paragraph and replace the text within the paragraph... */
+// /***CODE */
 
 // document.querySelector("p").textContent = "'New text in paragraph one: text changed by Simon Duchaine Morneau on the following date: 29th of January."
 
-// /*************************************** */
-// /* 2: Select all elements in the HTML that have the class name content-container
-//  and change the background color ... of first and second ...*/
-// /***CODE */
+// // /*************************************** */
+// // /* 2: Select all elements in the HTML that have the class name content-container
+// //  and change the background color ... of first and second ...*/
+// // /***CODE */
 
 // document.getElementsByClassName("content-container")[0].style.background = "orange";
 // document.getElementsByClassName("content-container")[1].style.background = "purple";
@@ -237,8 +237,20 @@ console.log(document.getElementById("parent"))
 // // console.log(document.getElementsByTagName("h2").textContent = "TEST 123")
 // // console.log(document.querySelector("TEST 123").parentElement)
 // // console.log(document.getElementsByTagName("h2").textContent)
+
 // // document.getElementsByTagName("h2")[0].textContent = "TEST 123"
-// document.getElementsByTagName("p")[2].textContent = "TEST 123"
+
+// // document.getElementsByTagName("p")[2].textContent = "TEST 123"
+
+// document.querySelectorAll("p")[2].innerHTML = "<h2> TEST 123 </h2>"
+
+// // newH2 = document.createElement("h2");
+// // newH2.innerHTML = "TEST 123";
+
+// // let parentElement = document.getElementsbyTagName("p")[2];
+// // parentElement.appendChild(newH2);
+
+
 
 // // console.log(document.getElementsByTagName("h2"))
 // // console.log(document.getElementsByTagName("h2")[0].innerHTML)
@@ -251,14 +263,15 @@ console.log(document.getElementById("parent"))
 // add to the existing content an h2 element containing the text `TEST 123`
 // /***CODE */
 
-// document.getElementsByTagName("p")[3].textContent += "TEST 123"
+// document.querySelectorAll("p")[3].innerHTML += "<h2> TEST 123 </h2>"
 
-// /*************************************** */
-// /* 6: Select the fifth paragraph element on the page and add to the existing content 
-// an img element that holds `one.png`, and add the class newStyle to said paragraph element.
+// // document.getElementsByTagName("p")[3].textContent += "TEST 123"
+
+// // /*************************************** */
+// // /* 6: Select the fifth paragraph element on the page and add to the existing content an img element that holds `one.png`, and add the class newStyle to said paragraph element.
 // /***CODE */
 
-
+// // document.querySelectorAll("p")[4].innerHTML += "<img src="task-1-images/one.png" />"
 
 
 // // //new element
@@ -279,17 +292,17 @@ console.log(document.getElementById("parent"))
 
 // // document.getElementsByTagName("p")[4].innerHTML += "TEST 123"
 
-// /*************************************** */
-// /* 7: Add the following array variable: let colors = ['red','blue','green','orange'];, 
-// then access all elements with class name inner-container and save to a variable called `innerContainers`. 
-// Next, iterate over the colors array, and for each color: 
-// assign the element from innerContainers variable with the same index 
-// (i.e. colors[0] should be allocated to the first innerContainers element, colors[1] to the second, etc ...) 
-// a background using that color.
-// /***CODE */
+// // /*************************************** */
+// // /* 7: Add the following array variable: let colors = ['red','blue','green','orange'];, 
+// // then access all elements with class name inner-container and save to a variable called `innerContainers`. 
+// // Next, iterate over the colors array, and for each color: 
+// // assign the element from innerContainers variable with the same index 
+// // (i.e. colors[0] should be allocated to the first innerContainers element, colors[1] to the second, etc ...) 
+// // a background using that color.
+// // /***CODE */
 
-// /*************************************** */
-// /*** END PART TWO MODIFY */ 
+// // /*************************************** */
+// // /*** END PART TWO MODIFY */ 
 
 
 
@@ -327,7 +340,7 @@ newP.style.background = "green";
 newP.style.color = "white";
 
 // access parent element
-let parent = document.getElementsbyTagName("div")
+parent = document.querySelectorAll("div")
 parent.appendChild(newP)
 
 }
