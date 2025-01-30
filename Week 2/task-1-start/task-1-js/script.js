@@ -212,83 +212,88 @@ console.log(document.getElementById("parent"))
 /* 1: Select the first paragraph and replace the text within the paragraph... */
 /***CODE */
 
-document.querySelector("p").textContent = "'New text in paragraph one: text changed by Simon Duchaine Morneau on the following date: 29th of January."
+// document.querySelector("p").textContent = "'New text in paragraph one: text changed by Simon Duchaine Morneau on the following date: 29th of January."
 
-/*************************************** */
-/* 2: Select all elements in the HTML that have the class name content-container
- and change the background color ... of first and second ...*/
-/***CODE */
+// /*************************************** */
+// /* 2: Select all elements in the HTML that have the class name content-container
+//  and change the background color ... of first and second ...*/
+// /***CODE */
 
-document.getElementsByClassName("content-container")[0].style.background = "orange";
-document.getElementsByClassName("content-container")[1].style.background = "purple";
+// document.getElementsByClassName("content-container")[0].style.background = "orange";
+// document.getElementsByClassName("content-container")[1].style.background = "purple";
 
-/*************************************** */
-/* 3: Change the src element of the first image element on the page to be ...
-/***CODE */
+// /*************************************** */
+// /* 3: Change the src element of the first image element on the page to be ...
+// /***CODE */
 
-document.querySelector("img").setAttribute("src", "task-1-images/seven.png") 
-console.log(document.querySelector("img"))
+// document.querySelector("img").setAttribute("src", "task-1-images/seven.png") 
+// console.log(document.querySelector("img"))
 
-/*************************************** */
-/* 4: Select the third paragraph element on the page and 
-replace the content (within the paragraph) to be an h2 element which contains the text `TEST 123`
-/***CODE */
+// /*************************************** */
+// /* 4: Select the third paragraph element on the page and 
+// replace the content (within the paragraph) to be an h2 element which contains the text `TEST 123`
+// /***CODE */
 
-// console.log(document.getElementsByTagName("h2").textContent = "TEST 123")
-// console.log(document.querySelector("TEST 123").parentElement)
-// console.log(document.getElementsByTagName("h2").textContent)
-// document.getElementsByTagName("h2")[0].textContent = "TEST 123"
-document.getElementsByTagName("p")[2].textContent = "TEST 123"
+// // console.log(document.getElementsByTagName("h2").textContent = "TEST 123")
+// // console.log(document.querySelector("TEST 123").parentElement)
+// // console.log(document.getElementsByTagName("h2").textContent)
+// // document.getElementsByTagName("h2")[0].textContent = "TEST 123"
+// document.getElementsByTagName("p")[2].textContent = "TEST 123"
 
-// console.log(document.getElementsByTagName("h2"))
-// console.log(document.getElementsByTagName("h2")[0].innerHTML)
+// // console.log(document.getElementsByTagName("h2"))
+// // console.log(document.getElementsByTagName("h2")[0].innerHTML)
 
-// console.log(document.getElementsByTagName("h2").children[] = "TEST 123")
-// console.log(document.getElementsByTagName("h2"))
+// // console.log(document.getElementsByTagName("h2").children[] = "TEST 123")
+// // console.log(document.getElementsByTagName("h2"))
 
-/*************************************** */
-/* 5: Select the fourth paragraph element on the page and 
-add to the existing content an h2 element containing the text `TEST 123`
-/***CODE */
+// /*************************************** */
+// /* 5: Select the fourth paragraph element on the page and 
+// add to the existing content an h2 element containing the text `TEST 123`
+// /***CODE */
 
-document.getElementsByTagName("p")[3].textContent += "TEST 123"
+// document.getElementsByTagName("p")[3].textContent += "TEST 123"
 
-/*************************************** */
-/* 6: Select the fifth paragraph element on the page and add to the existing content 
-an img element that holds `one.png`, and add the class newStyle to said paragraph element.
-/***CODE */
-
-
-
-
-//new element
-let newImg = document.createElement("img");
-newDiv.classList.add("p");
-newDiv.innerHTML = "src = "task-1-images/eleven.png""
-newDiv.style.backgroundColor = "purple";
-// access parent element
-let parentElement = document.getElementsByClassName("img-container")
-parentElement.appendChild(newImg)
+// /*************************************** */
+// /* 6: Select the fifth paragraph element on the page and add to the existing content 
+// an img element that holds `one.png`, and add the class newStyle to said paragraph element.
+// /***CODE */
 
 
 
 
+// // //new element
+// // let newImg = document.createElement("img");
+// // newImg.classList.add("p");
+// // document.querySelector("img").setAttribute("src", "task-1-images/seven.png") 
+// // newImg.innerHTML = "task-1-images/eleven.png"
+// // newDiv.style.backgroundColor = "purple";
+// // // access parent element
+// // let parentElement = document.getElementsByClassName("img-container")
+// // parentElement.appendChild(newImg)
 
-document.querySelector("img").setAttribute("src", "task-1-images/seven.png") 
 
-document.getElementsByTagName("p")[4].innerHTML += "TEST 123"
 
-/*************************************** */
-/* 7: Add the following array variable: let colors = ['red','blue','green','orange'];, 
-then access all elements with class name inner-container and save to a variable called `innerContainers`. 
-Next, iterate over the colors array, and for each color: 
-assign the element from innerContainers variable with the same index 
-(i.e. colors[0] should be allocated to the first innerContainers element, colors[1] to the second, etc ...) 
-a background using that color.
-/***CODE */
 
-/*************************************** */
-/*** END PART TWO MODIFY */ 
+
+// // document.querySelector("img").setAttribute("src", "task-1-images/seven.png") 
+
+// // document.getElementsByTagName("p")[4].innerHTML += "TEST 123"
+
+// /*************************************** */
+// /* 7: Add the following array variable: let colors = ['red','blue','green','orange'];, 
+// then access all elements with class name inner-container and save to a variable called `innerContainers`. 
+// Next, iterate over the colors array, and for each color: 
+// assign the element from innerContainers variable with the same index 
+// (i.e. colors[0] should be allocated to the first innerContainers element, colors[1] to the second, etc ...) 
+// a background using that color.
+// /***CODE */
+
+// /*************************************** */
+// /*** END PART TWO MODIFY */ 
+
+
+
+
 
 
 /*************************************** */
@@ -296,7 +301,6 @@ a background using that color.
 /*************************************** */
 /* 1: NEW PARAGRAPHS */
 /* 1A: Access all paragraph elements, and store the result in a variable called: allPTagsThree */
-/* 1B: Create a function:function customCreateElement(parent){ //body } */
 /* 1C:  In the body of customCreateElement create a new parargraph element*/
 /* 1D:  Set the text of this element to be : `using create Element`*/
 /* 1E:  Set the background of this paragraph element to be green */
@@ -306,9 +310,37 @@ a background using that color.
 passing the current allPTagsThree element as the parent with each iteration.*/
 /***CODE */
 
+let allPTagsThree = document.getElementsByTagName("p");
+console.log(allPTagsThree);
+
+/* 1B: Create a function:function customCreateElement(parent){ //body } */
+
+function customCreateElement(parent) {
+
+//body
+
+//new element
+newP = document.createElement("p");
+newP.classList.add("img-descript");
+newP.innerHTML = "<p> using create Element </p>";
+newP.style.background = "green";
+newP.style.color = "white";
+
+// access parent element
+let parent = document.getElementsbyTagName("div")
+parent.appendChild(newP)
+
+}
+
+for (let i = 0; i < allPTagsThree.length; i++) {
+
+    customCreateElement();
+
+}
 
 /***EXPLANATION::
  * 
+ * I don't know why it doesn't work... It should work...
  * 
  */
 
@@ -333,6 +365,17 @@ passing the current allPTagsThree element as the parent with each iteration.*/
     otherwise lat it have the content `ODD`.*/
 
 /***CODE */
+
+function customNewBoxCreate(parent) {
+
+    //body
+
+    newDiv  = document.createElement("div");
+    newDIV.classList.add("testDiv");
+
+    parent.appendChild(newDiv)
+
+}
 
 
 /***EXPLANATION::
