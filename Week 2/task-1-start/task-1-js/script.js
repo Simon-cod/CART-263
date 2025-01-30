@@ -237,9 +237,14 @@ replace the content (within the paragraph) to be an h2 element which contains th
 // console.log(document.getElementsByTagName("h2").textContent = "TEST 123")
 // console.log(document.querySelector("TEST 123").parentElement)
 // console.log(document.getElementsByTagName("h2").textContent)
-console.log(document.getElementsByTagName("h2").textContent)
 // document.getElementsByTagName("h2")[0].textContent = "TEST 123"
 document.getElementsByTagName("p")[2].textContent = "TEST 123"
+
+// console.log(document.getElementsByTagName("h2"))
+// console.log(document.getElementsByTagName("h2")[0].innerHTML)
+
+// console.log(document.getElementsByTagName("h2").children[] = "TEST 123")
+// console.log(document.getElementsByTagName("h2"))
 
 /*************************************** */
 /* 5: Select the fourth paragraph element on the page and 
@@ -252,6 +257,24 @@ document.getElementsByTagName("p")[3].textContent += "TEST 123"
 /* 6: Select the fifth paragraph element on the page and add to the existing content 
 an img element that holds `one.png`, and add the class newStyle to said paragraph element.
 /***CODE */
+
+
+
+
+//new element
+let newImg = document.createElement("img");
+newDiv.classList.add("p");
+newDiv.innerHTML = "src = "task-1-images/eleven.png""
+newDiv.style.backgroundColor = "purple";
+// access parent element
+let parentElement = document.getElementsByClassName("img-container")
+parentElement.appendChild(newImg)
+
+
+
+
+
+document.querySelector("img").setAttribute("src", "task-1-images/seven.png") 
 
 document.getElementsByTagName("p")[4].innerHTML += "TEST 123"
 
