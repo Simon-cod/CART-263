@@ -134,7 +134,7 @@ function setupGarden(){
   for (let i = 0; i < garden.numSquirrelsStand; i++) {
     // Create variables for our arguments for clarity
     let randomX = Math.random() * (window.innerWidth - 300);
-    let randomY = Math.floor(Math.random() * (400)) + 175;
+    let randomY = Math.floor(Math.random() * (350)) + 200;
     let size = Math.floor(Math.random() * 300) + 100;
 
     console.log(size)
@@ -152,7 +152,7 @@ function setupGarden(){
   for (let i = 0; i < garden.numSquirrelsRun; i++) {
     // Create variables for our arguments for clarity
     let randomX = Math.random() * (window.innerWidth - 300);
-    let randomY = Math.floor(Math.random() * (400)) + 175;
+    let randomY = Math.floor(Math.random() * (350)) + 200;
     let size = Math.floor(Math.random() * 300) + 100;
 
     console.log(size)
