@@ -22,20 +22,22 @@ if(this.drawingBoardId ==="partC"){
 
   console.log("in C")
 
+try {
+
   getMicrophoneInput();
 
-  async function getMicrophoneInput() {
-    // console.log("here we are ");
+      async function getMicrophoneInput() {
+      // console.log("here we are ");
    
-    window.AudioContext = window.AudioContext || window.webkitAudioContext;
-    let audioContext = new AudioContext(); //using the web audio library
+     window.AudioContext = window.AudioContext || window.webkitAudioContext;
+     let audioContext = new AudioContext(); //using the web audio library
    
-    try {
+    
       //returns a MediaStreamAudioSourceNode.
-let audioStream = await navigator.mediaDevices.getUserMedia({
-  audio: true,
-});
-console.log("microphone on")
+    let audioStream = await navigator.mediaDevices.getUserMedia({
+    audio: true,
+    });
+    console.log("microphone on")
 // console.log(audioStream)
 //pass the microphone input to the web audio API
 let microphoneIn = audioContext.createMediaStreamSource(audioStream);
@@ -69,39 +71,29 @@ let frequencyData = new Uint8Array(analyser.frequencyBinCount);
 
         console.log(soundVariable)
 
+        self.objectsOnCanvas[0].x_speed = soundVariable/200
+
+        self.objectsOnCanvas[0].angularSpeed = soundVariable/100
+
+        self.animate();
+
         requestAnimationFrame(animateSound); 
+
+
 
       }
 
       console.log(soundVariable)
 
-      this.objectsOnCanvas[0].x_speed += soundVariable
+      
 
-  this.objectsOnCanvas[0].angularSpeed += soundVariable
-
-      /****our looping callback function */
-      // function animateFrequencies() {
-        // context.clearRect(0, 0, canvas.width, canvas.height);
-        // analyser.getByteFrequencyData(frequencyData);
-        // let average = 0;
-        // let sum = 0;
-   
-        // for (let i = 0; i < frequencyData.length; i++) {
-        //   sum += frequencyData[i];
-        // }
-        // average = sum / frequencyData.length;
-        // //console.log(average);
-        // context.fillStyle = "#FF0000";
-        // //use the average frequency
-        // context.fillRect(canvas.width / 2, canvas.height / 2, average, 30);
-        // requestAnimationFrame(animateFrequencies);
-      // }
-    } catch (err) {
-      /* handle the error */
-      console.log("had an error getting the microphone");
-    }
+    
   }
 
+} catch (err) {
+  /* handle the error */
+  console.log("had an error getting the microphone");
+}
 }
 
 this.canvas.addEventListener("contextmenu", function (e) {

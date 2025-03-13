@@ -66,7 +66,8 @@ let drawingBoardD = new DrawingBoard(theCanvases[3],theContexts[3],theCanvases[3
 drawingBoardD.addObj(new VideoObj(0,0,400,300,videoEl,drawingBoardD.context))
 drawingBoardD.display();
 
-
+// document.querySelector("#" + fillColor)
+// document.querySelector('#${fillColor}')
 /*** RUN THE ANIMATION LOOP  */
 window.requestAnimationFrame(animationLoop);
 
@@ -74,7 +75,7 @@ function animationLoop(){
     /*** CALL THE EACH CANVAS TO ANIMATE INSIDE  */
     drawingBoardA.animate();
     drawingBoardB.animate();
-    drawingBoardC.animate();
+    // drawingBoardC.animate();
     drawingBoardD.run(videoEl)
     window.requestAnimationFrame(animationLoop);
 }
