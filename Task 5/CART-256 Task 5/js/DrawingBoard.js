@@ -14,10 +14,29 @@ class DrawingBoard {
 
     this.canvas.addEventListener("mousemove", function (e) {
       self.overCanvas(e);
-      
     });
-  }
 
+//Start of Adam's assignment
+
+this.canvas.addEventListener("contextmenu", function (e) {
+  self.rightClick(e);
+});
+
+}
+
+rightClick(e){
+e.preventDefault()
+if(this.drawingBoardId ==="partA"){
+  console.log (this.objectsOnCanvas.length) 
+  let length = this.objectsOnCanvas.length 
+  this.objectsOnCanvas.pop()
+}
+}
+
+
+  
+
+  
     //event listener for the microone
 
 
@@ -129,7 +148,10 @@ class DrawingBoard {
     //differentiate which canvas
    //you can remove the console.logs /// 
      if(this.drawingBoardId ==="partA"){
-      console.log("in A")
+      console.log("in AAdam")
+      //add new circle
+      this.addObj(new CircularObj(this.mouseOffsetX,this.mouseOffsetY,20,"#FFC300","#E6E6FA", this.context))
+      //end of Adam Assignment
     }
     if(this.drawingBoardId ==="partB"){
       console.log("in B")
