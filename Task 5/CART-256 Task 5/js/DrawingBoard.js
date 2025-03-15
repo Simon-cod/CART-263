@@ -73,7 +73,7 @@ let frequencyData = new Uint8Array(analyser.frequencyBinCount);
 
         self.objectsOnCanvas[0].x_speed = soundVariable/200
 
-        self.objectsOnCanvas[0].angularSpeed = soundVariable/100
+        self.objectsOnCanvas[0].angularSpeed = soundVariable/500
 
         self.animate();
 
@@ -154,7 +154,11 @@ if(this.drawingBoardId ==="partA"){
       //end of Adam Assignment
     }
     if(this.drawingBoardId ==="partB"){
-      console.log("in B")
+       for (let i = 0; i < this.objectsOnCanvas.length; i++) {
+        if (this.objectsOnCanvas[i] instanceof RectangularObj) {
+          this.objectsOnCanvas[i].handleClick(this.mouseOffsetX, this.mouseOffsetY);
+        }
+      }
     }
     if(this.drawingBoardId ==="partC"){
       console.log("in C")
