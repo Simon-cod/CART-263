@@ -123,12 +123,12 @@ function checkOverlapPlatformFireBall(platform) {
 
     // if each side of the platform overlap/touch the fireball, resets it to it's origin position
     if (
-       platform.y + platform.height / 2 >= fireBall.y - fireBall.size/2  && // platform bottom and fireBall top
-       platform.y - platform.height / 2 <= fireBall.y + fireBall.size/2 &&   // platform top and fireBall bottom
-       platform.x + platform.width / 2 >= fireBall.x - fireBall.size/2 && // platform right and fireBall left
-       platform.x - platform.width / 2 <= fireBall.x + fireBall.size/2 // platform1 left and fireBall right 
+       platform.y + platform.height / 2 >= bomb.y - bomb.size/2  && // platform bottom and fireBall top
+       platform.y - platform.height / 2 <= bomb.y + bomb.size/2 &&   // platform top and fireBall bottom
+       platform.x + platform.width / 2 >= bomb.x - bomb.size/2 && // platform right and fireBall left
+       platform.x - platform.width / 2 <= bomb.x + bomb.size/2 // platform1 left and fireBall right 
        ){
-        fireBallDeath();
+        bombExplosion();
        }
    }
 // }

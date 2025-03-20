@@ -74,7 +74,7 @@ function runGame() {
     background(100, 50, 0)
     drawSun();
     createPlatforms();
-    createLava();
+    createBomb();
     gameMechanics();
     drawHero();
 }
@@ -97,17 +97,9 @@ function drawHero() {
 function keyPressed() {
     
     if (keyCode === 39) { //right arrow
-        fireBall.state = "shooting"
-        fireBall.shooting.direction = "right";
+        bomb.shooting.direction = "right";
     } else if (keyCode === 37) { //left arrow
-        fireBall.state = "shooting"
-        fireBall.shooting.direction = "left";
-    // } else if (keyCode === 38) { //up arrow
-    //     fireBall.state = "shooting"
-    //     fireBall.shooting.direction = "up";
-    // } else if (keyCode === 40) { //down arrow
-    //     fireBall.state = "shooting"
-    //     fireBall.shooting.direction = "down"
+        bomb.shooting.direction = "left";
     } else if 
     //Starts the game when spacebar is pressed
      (keyCode === 32 && gameState === "titleScreen") { //Spacebar
