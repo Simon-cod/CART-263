@@ -6,7 +6,7 @@ Simon Duchaine Morneau
 
 ## Description
 
-It's now time to be the villain! Fly across the room as a fireball to kill the hero, but be careful of the deadly platforms and your dangerously increasing speed.
+You incarnate a deadly bomb. Try to avoid the buildings and be mindful of your speed!
 
 ## Credits
 

@@ -32,7 +32,7 @@ function createBomb() {
 
 
 /**
- * Draws the fire ball
+ * Draws the bomb
  */
 function drawBomb() {
     push();
@@ -44,7 +44,7 @@ function drawBomb() {
 }
 
 /**
- * Makes the fire ball that got shot move depending on the keyboard and increase speed overtime
+ * Makes the bomb sway depending on the amount of frequencies (of the microphone)
  */
 function swayBomb() {
 
@@ -62,7 +62,7 @@ function swayBomb() {
 }
 
 /**
- * Makes the initial fire ball bounce
+ * Makes the initial bomb bounce
  */
 function bombDrop() {
     
@@ -71,7 +71,7 @@ function bombDrop() {
 }
 
 /**
- * Makes the fireBall resets if it goes too far outside the canvas
+ * Makes the bomb reset if it goes too far outside the canvas (probably futile in this case but still we're never too precautious)
  */
 function constrainBombInsideCanvas() {
     if(bomb.x < -100 || bomb.x > 2100) { //if it goes outside the canvas to the right or the left
@@ -82,7 +82,7 @@ function constrainBombInsideCanvas() {
 }
 
 /**
- * makes the fireBall resets and restart bouncing
+ * makes the bomb reset at the top of the canvas
  */
 function bombExplosion() {
     //resets everything to it's initial state
