@@ -68,7 +68,9 @@ function run() {
 
     poem_sentence += matched_word.trim()+" ";
   }
-    document.querySelector("#rainbow_text").textContent = poem_sentence.trim();
+
+  //visuallizes the poem in the rainbow text raw window (should not be shown)
+    // document.querySelector("#rainbow_text").textContent = poem_sentence.trim();
 
  
     //to next stage
@@ -143,7 +145,7 @@ function run() {
         span.style.left =`${newX}px`;
         span.style.top = `${newY}px`;
       };
-      setInterval(moveRandomly, 3000);
+      setInterval(moveRandomly, 2000);
       moveRandomly();
     });
 
@@ -155,9 +157,25 @@ function run() {
   /****** PART E:: RESET  */
   function resetPoem() {
   /*** TO FILL IN */
+
+  //delete the poem's visualisation
+ let deletedElement = document.querySelector("#output");
+
+ deletedElement.replaceChildren();
+
+ console.log(deletedElement)
+
+ 
+//delet the imput
+ let phrase = document.querySelector("#phrase")
+
+ phrase.value = "";
   
-  
+ console.log(phrase);
+
   }
+
+  
 } //window onload
 
 
