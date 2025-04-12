@@ -3,9 +3,9 @@
 let bomb = {
     x: 200,
     y: 100,
-    r: 150,
-    g: 150 ,
-    b: 150,
+    r: 250,
+    g: 250 ,
+    b: 250,
     size: 30,
     originalX: 200,
     originalY: 100,

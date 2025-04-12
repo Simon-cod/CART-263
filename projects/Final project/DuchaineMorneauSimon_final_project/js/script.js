@@ -71,7 +71,8 @@ function draw() {
 */
 function runGame() {
 
-    background(100, 50, 0)
+    background(150, 100, 0)
+    
     drawSun();
     createPlatforms();
     createBomb();
@@ -120,3 +121,4 @@ function keyReleased() {
         bomb.shooting.direction = "none"
     }
 }
+
