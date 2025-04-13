@@ -145,22 +145,6 @@ function micBombSway() {
 
 bomb.x = bomb.originalX + bomb.shooting.micSpeed
 
-
-//     if (bomb.shooting.direction === "none"){
-//     //do nothing
-//     bombComeBack();
-//     } else if (bomb.shooting.direction === "right"){
-
-//     bomb.x += bomb.shooting.speed
-
-//     counter += 1
-
-//     console.log("counter = " + counter)
-
-//     } else if (bomb.shooting.direction === "left"){
-//    bomb.x -= bomb.shooting.speed
-
-//     }
 }
 
 

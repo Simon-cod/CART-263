@@ -72,12 +72,12 @@ function draw() {
 function runGame() {
 
     background(150, 100, 0)
-    
+    createBackgroundRectangle();
     drawSun();
     createPlatforms();
     createBomb();
-    gameMechanics();
-    drawHero();
+    // gameMechanics();
+    // drawHero();
 }
 
 /**

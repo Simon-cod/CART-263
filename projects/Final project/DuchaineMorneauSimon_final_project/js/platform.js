@@ -1,5 +1,25 @@
+let bgRec = {
+    topX: 0,
+    topY: 0,
+    w: 1000,
+    h: 2000
+}
+let realX = undefined
+let realY = undefined
+
+function createBackgroundRectangle() {
+
+    realX = bgRec.topX + 500
+    realY = bgRec.topY + 1000
+
+    push()
+    fill(51);
+    noStroke();
+    rect(realX, realY, bgRec.w, bgRec.h);
+    pop()
 
 
+}
 //Creates an array for the platforms
 let platforms = [
 
@@ -77,14 +97,6 @@ let platforms = [
         width: 250,
         height: 35 
     },
-    // {   
-    //     x: 200,
-    //     y: 550,
-    //     b: 0,
-    //     r: 0,
-    //     width: 450,
-    //     height: 35 
-    // },
     {
         x: 800,
         y: 399,
@@ -108,9 +120,13 @@ let platforms = [
 */
 function createPlatforms() {
 //creates a loop with the variable platform (that changes vallues depending on the array)
-    for(let platform of platforms) {
+
+bgRec.topY -= 1
+
+for(let platform of platforms) {
     checkOverlapPlatformBomb(platform);
     drawPlatform(platform);
+    movePlatform(platform);
 }
 }
 
@@ -141,3 +157,9 @@ function drawPlatform(platform) {
     rect(platform.x, platform.y, platform.width, platform.height);
     pop();
 };
+
+function movePlatform(platform){
+
+platform.y -= 1
+
+}
