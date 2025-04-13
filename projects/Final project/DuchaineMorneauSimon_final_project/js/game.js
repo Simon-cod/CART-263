@@ -30,7 +30,7 @@ function drawEndPlatform() {
 */
 function title() {
 
-    background(100, 50, 0);
+    background(100, 60, 40);
     push();
     textSize(180);
     textAlign(CENTER, TOP);

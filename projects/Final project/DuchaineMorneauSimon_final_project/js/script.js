@@ -71,7 +71,7 @@ function draw() {
 */
 function runGame() {
 
-    background(150, 100, 0)
+    background(51)
     createBackgroundRectangle();
     drawSun();
     createPlatforms();

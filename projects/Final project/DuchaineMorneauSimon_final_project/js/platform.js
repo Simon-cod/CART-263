@@ -14,7 +14,7 @@ function createBackgroundRectangle() {
     realY = bgRec.topY + 1000
 
     push()
-    fill(51);
+    fill(100, 60, 40);
     noStroke();
     rect(realX, realY, bgRec.w, bgRec.h);
     pop()
@@ -219,10 +219,10 @@ function checkOverlapPlatformBomb(platform) {
 
     // if each side of the platform overlap/touch the fireball, resets it to it's origin position
     if (
-       platform.y + platform.height / 2 >= bomb.y - bomb.size/2  && // platform bottom and bomb top
-       platform.y - platform.height / 2 <= bomb.y + bomb.size/2 &&   // platform top and bomb bottom
-       platform.x + platform.width / 2 >= bomb.x - bomb.size/2 && // platform right and bomb left
-       platform.x - platform.width / 2 <= bomb.x + bomb.size/2 // platform1 left and bomb right 
+       platform.y + platform.height / 2 >= bomb.y - bomb.h/2  && // platform bottom and bomb top
+       platform.y - platform.height / 2 <= bomb.y + bomb.h/2 &&   // platform top and bomb bottom
+       platform.x + platform.width / 2 >= bomb.x - bomb.w/2 && // platform right and bomb left
+       platform.x - platform.width / 2 <= bomb.x + bomb.w/2 // platform1 left and bomb right 
        ){
         bombExplosion();
         resetPlatforms();

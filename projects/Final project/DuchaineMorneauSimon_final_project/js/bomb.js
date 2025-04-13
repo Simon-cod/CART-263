@@ -3,10 +3,11 @@
 let bomb = {
     x: 100,
     y: 100,
-    r: 250,
-    g: 250 ,
-    b: 250,
-    size: 30,
+    r: 150,
+    g: 140 ,
+    b: 130,
+    w: 30,
+    h: 70,
     originalX: 100,
     originalY: 100,
     speed: 0.1,
@@ -107,8 +108,26 @@ function createBomb() {
 function drawBomb() {
     push();
     noStroke();
-    fill(bomb.r, bomb.g, bomb.b),
-    circle(bomb.x, bomb.y, bomb.size)
+    fill(bomb.r, bomb.g, bomb.b);
+    ellipse(bomb.x, bomb.y, bomb.w, 70)
+    pop();
+
+    push();
+    noStroke();
+    fill(bomb.r, bomb.g, bomb.b);
+    rect(bomb.x, bomb.y - 15, 30, 30);
+    pop();
+
+    push();
+    noStroke();
+    fill(bomb.r, bomb.g, bomb.b);
+    ellipse(bomb.x, bomb.y - 30, bomb.w, 10)
+    pop();
+
+    push();
+    noStroke();
+    fill(180, 100, 20);
+    rect(bomb.x, bomb.y + 10, 29, 5);
     pop();
 
 }
@@ -143,8 +162,11 @@ function micBombSway() {
 
     console.log(bomb.shooting.micSpeed)
 
-bomb.x = bomb.originalX + bomb.shooting.micSpeed
-
+    if (bomb.shooting.micSpeed < 80){
+        //do nothing
+    } else if (bomb.shooting.micSpeed >= 80){
+    bomb.x = bomb.originalX + bomb.shooting.micSpeed
+    }
 }
 
 
