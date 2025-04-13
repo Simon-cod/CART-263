@@ -1,16 +1,16 @@
 
 //creates a variable for the bomb
 let bomb = {
-    x: 200,
+    x: 100,
     y: 100,
     r: 250,
     g: 250 ,
     b: 250,
     size: 30,
-    originalX: 200,
+    originalX: 100,
     originalY: 100,
     speed: 0.1,
-    gravity: 0.02,
+    gravity: 0.01,
     shooting: {
         initialSpeed: 15,
         speed: 15, 
@@ -69,7 +69,7 @@ let frequencyData = new Uint8Array(analyser.frequencyBinCount);
         }
         soundVariable = sum / frequencyData.length;
 
-        bomb.shooting.micSpeed = soundVariable * 3
+        bomb.shooting.micSpeed = soundVariable * 8
 
         requestAnimationFrame(animateSound); 
 

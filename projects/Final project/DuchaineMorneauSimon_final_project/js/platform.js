@@ -19,22 +19,23 @@ function createBackgroundRectangle() {
     rect(realX, realY, bgRec.w, bgRec.h);
     pop()
 
-    bgRec.topY -= bomb.speed
+    
+    
 
 }
 //Creates an array for the platforms
 let platforms = [
 
     {
-        x: 500,
+        x: 400,
         initialY:1900,
         y: 1900,
         //the amount of blue of the platform
         b: 0,
         //the amount of red of the platform 
         r: 0,
-        width: 1000,
-        height: 200 
+        width: 800,
+        height: 60 
     },
     {
         x: 850,
@@ -43,7 +44,7 @@ let platforms = [
         b: 0,
         r: 0,
         width: 300,
-        height: 120 
+        height: 30 
     },
     {
         x: 300,
@@ -55,13 +56,22 @@ let platforms = [
         height: 60 
     },
     {
-        x: 100,
-        initialY: 1520,
-        y: 1520,
+        x: 600,
+        initialY: 1460,
+        y: 1460,
         b: 0,
         r: 0,
-        width: 200,
-        height: 100 
+        width: 300,
+        height: 28 
+    },
+    {
+        x: 200,
+        initialY: 1380,
+        y: 1380,
+        b: 0,
+        r: 0,
+        width: 100,
+        height: 20 
     },
     {   
         x: 450,
@@ -71,6 +81,15 @@ let platforms = [
         r: 0,
         width: 250,
         height: 35 
+    },
+    {
+        x: 850,
+        initialY: 1260,
+        y: 1260,
+        b: 0,
+        r: 0,
+        width: 100,
+        height: 18 
     },
     {   
         x: 100,
@@ -99,33 +118,78 @@ let platforms = [
         width: 400,
         height: 35 
     },
+    {
+        x: 200,
+        initialY: 840,
+        y: 840,
+        b: 0,
+        r: 0,
+        width: 200,
+        height: 15 
+    },
     {   
-        x: 900,
+        x: 100,
         initialY: 700,
         y: 700,
         b: 0,
         r: 0,
-        width: 250,
-        height: 35 
+        width: 450,
+        height: 25 
+    },
+    {   
+        x: 800,
+        initialY: 800,
+        y: 800,
+        b: 0,
+        r: 0,
+        width: 450,
+        height: 30 
+    },
+    {   
+        x: 500,
+        initialY: 600,
+        y: 600,
+        b: 0,
+        r: 0,
+        width: 100,
+        height: 25 
+    },
+    {
+        x: 180,
+        initialY: 540,
+        y: 540,
+        b: 0,
+        r: 0,
+        width: 100,
+        height: 18 
     },
     {
         x: 800,
-        initialY: 399,
-        y: 399,
+        initialY: 415,
+        y: 415,
         b: 0,
         r: 0,
-        width: 160,
-        height: 21
+        width: 560,
+        height: 35
     },
     {
-        x: 1000,
-        initialY: 391.9,
-        y: 391.9,
+        x: 0,
+        initialY: 392,
+        y: 392,
         b: 0,
         r: 0,
         width: 247,
         height: 35
-    }
+    },
+    {
+        x: 550,
+        initialY: 280,
+        y: 280,
+        b: 0,
+        r: 0,
+        width: 250,
+        height: 18 
+    },
 ];
 
 /**
@@ -141,6 +205,11 @@ for(let platform of platforms) {
     drawPlatform(platform);
     movePlatform(platform);
 }
+}
+
+function moveBackground(){
+    bgRec.topY -= bomb.speed
+    sun.y -= bomb.speed
 }
 
 /**
@@ -176,6 +245,7 @@ function drawPlatform(platform) {
 function movePlatform(platform){
 
 platform.y -= bomb.speed
+
 
 }
 
