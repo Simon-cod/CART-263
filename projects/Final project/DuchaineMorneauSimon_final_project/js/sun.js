@@ -18,4 +18,12 @@ function drawSun() {
     fill(sun.r, sun.g, sun.b);
     circle(sun.x, sun.y, sun.size);
     pop();
+
+    moveSun()
+}
+
+function moveSun() {
+
+    sun.y -= bomb.speed
+
 }

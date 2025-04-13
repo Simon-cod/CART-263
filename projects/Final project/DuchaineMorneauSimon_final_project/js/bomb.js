@@ -10,7 +10,7 @@ let bomb = {
     originalX: 200,
     originalY: 100,
     speed: 0.1,
-    gravity: -0.05,
+    gravity: 0.02,
     shooting: {
         initialSpeed: 15,
         speed: 15, 
@@ -93,7 +93,7 @@ let frequencyData = new Uint8Array(analyser.frequencyBinCount);
  */
 function createBomb() {
     drawBomb();
-    bombDrop();
+    bombSpeed();
     micBombSway();
     constrainBombInsideCanvas();
     
@@ -151,10 +151,10 @@ bomb.x = bomb.originalX + bomb.shooting.micSpeed
 /**
  * Makes the initial bomb bounce
  */
-function bombDrop() {
+function bombSpeed() {
     
-        bomb.speed -= bomb.gravity
-        bomb.y += bomb.speed
+        bomb.speed += bomb.gravity
+        // bomb.y += bomb.speed
 }
 
 /**
