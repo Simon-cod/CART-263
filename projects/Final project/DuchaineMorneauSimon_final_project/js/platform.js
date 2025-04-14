@@ -27,27 +27,38 @@ function createBackgroundRectangle() {
 let platforms = [
 
     {
-        x: 400,
-        initialY:1900,
-        y: 1900,
+        x: 0,
+        initialY:1975,
+        y: 1975,
         //the amount of blue of the platform
         b: 0,
         //the amount of red of the platform 
         r: 0,
-        width: 800,
-        height: 60 
+        width: 300,
+        height: 50 
     },
     {
-        x: 850,
-        initialY: 1740,
-        y: 1740,
+        x: 800,
+        initialY:1975,
+        y: 1975,
+        //the amount of blue of the platform
+        b: 0,
+        //the amount of red of the platform 
+        r: 0,
+        width: 1050,
+        height: 50 
+    },
+    {
+        x: 250,
+        initialY: 1800,
+        y: 1800,
         b: 0,
         r: 0,
         width: 300,
         height: 30 
     },
     {
-        x: 300,
+        x: 700,
         initialY: 1600,
         y: 1600,
         b: 0,
@@ -56,7 +67,7 @@ let platforms = [
         height: 60 
     },
     {
-        x: 600,
+        x: 800,
         initialY: 1460,
         y: 1460,
         b: 0,
@@ -66,8 +77,8 @@ let platforms = [
     },
     {
         x: 200,
-        initialY: 1380,
-        y: 1380,
+        initialY: 1480,
+        y: 1480,
         b: 0,
         r: 0,
         width: 100,
@@ -83,12 +94,12 @@ let platforms = [
         height: 35 
     },
     {
-        x: 850,
-        initialY: 1260,
-        y: 1260,
+        x: 0,
+        initialY: 1360,
+        y: 1360,
         b: 0,
         r: 0,
-        width: 100,
+        width: 200,
         height: 18 
     },
     {   
@@ -109,8 +120,17 @@ let platforms = [
         width: 550,
         height: 35 
     },
+    {
+        x: 150,
+        initialY: 1075,
+        y: 1075,
+        b: 0,
+        r: 0,
+        width: 150,
+        height: 15 
+    },
     {   
-        x: 400,
+        x: 500,
         initialY: 947,
         y: 947,
         b: 0,
@@ -119,7 +139,7 @@ let platforms = [
         height: 35 
     },
     {
-        x: 200,
+        x: 0,
         initialY: 840,
         y: 840,
         b: 0,

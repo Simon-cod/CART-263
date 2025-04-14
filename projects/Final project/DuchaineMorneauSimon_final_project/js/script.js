@@ -40,7 +40,7 @@ let hero = {
 */
 function setup() {
 
-    createCanvas(800, 600)
+    createCanvas(1000, 2000)
 
     //sets that all the x and y coordinates for rectangles and cubes determine the position of the center of the shape
     rectMode(CENTER)
