@@ -10,6 +10,7 @@ let bomb = {
     h: 70,
     originalX: 100,
     originalY: 100,
+    state: "shooting",
     speed: 0.1,
     gravity: 0.01,
     shooting: {
@@ -22,6 +23,8 @@ let bomb = {
 }
 
 let counter = 0
+
+let deathCounter = 0
 
 try {
 
@@ -208,10 +211,15 @@ function constrainBombInsideCanvas() {
  */
 function bombExplosion() {
     
+    deathCounter += 1
+    bomb.state = "explosion"
+
     //resets everything to it's initial state
     bomb.shooting.direction = "none"
     bomb.y = bomb.originalY;
     bomb.x = bomb.originalX;
     bomb.shooting.speed = bomb.shooting.initialSpeed
     bomb.speed = 0.1
+
+    bomb.state = "shooting"
 }

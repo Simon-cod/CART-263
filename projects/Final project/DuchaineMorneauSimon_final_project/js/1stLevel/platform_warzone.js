@@ -1,8 +1,8 @@
 //color for the background of the first level
 let warzoneBg = {
-    r: 100,
-    g:60,
-    b:40
+    r: 110,
+    g:70,
+    b:50
 }
 
 let bgRec = {
@@ -26,7 +26,13 @@ function createBackgroundRectangle() {
     rect(realX, realY, bgRec.w, bgRec.h);
     pop()
 
-    
+    push();
+    textSize(40);
+    textAlign(CENTER, TOP);
+    fill(200, 180, 160);
+    text( "Explosion: " + deathCounter, 825 , bgRec.topY + 80);
+    pop();
+
     
 
 }
@@ -192,8 +198,8 @@ let platforms = [
     },
     {
         x: 800,
-        initialY: 435,
-        y: 435,
+        initialY: 405,
+        y: 405,
         b: 0,
         r: 0,
         width: 560,
@@ -255,7 +261,6 @@ function checkOverlapPlatformBomb(platform) {
         
         bombExplosion();
         resetPlatforms();
-        bombCrater(platform)
        }
        console.log(bomb.speed)
    }
@@ -288,15 +293,19 @@ function resetPlatforms(){
     bgRec.topX = 0
     bgRec.topY = 0
     sun.y = 80
-   
 }
 
-function bombCrater(platform) {
+function bombCrater() {
+    
+    if (bomb.state = "explosion") {
     //puts a hole in the platform
     push();
-    fill(250)
+    fill(warzoneBg.r, warzoneBg.g, warzoneBg.b)
     noStroke()
-    ellipse(platform.x, platform.y, 500, 500)
+    ellipse(bomb.x, bomb.y + 20, 50, 50)
     pop();
+    } else {
+        //do nothing
+    }
 
 }

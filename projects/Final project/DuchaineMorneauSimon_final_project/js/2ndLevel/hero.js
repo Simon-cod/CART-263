@@ -17,6 +17,7 @@ let hero = {
     w: 30,
     h: 30,
     size: 30,
+    width: 35,
     //the hero's speed
     speed: {
         state: "normal",
@@ -55,10 +56,16 @@ function drawHero() {
     
 
     push();
-    fill(0, 0, 0);
+    fill(175, 225, 175);
     noStroke();
-    square (hero.x, hero.y, hero.size);
+    rect (hero.x, hero.y, hero.width, 30);
     pop();
+
+    // push();
+    // fill(0, 75, 0);
+    // noStroke();
+    // rect (hero.x + 20, hero.y + 5, 20, 18);
+    // pop();
 
 }
 
@@ -96,6 +103,12 @@ function moveHero() {
     //constrains the hero to go off the canvas on the left
     else if (hero.x < 0 + hero.size/2) {
         hero.x = 0 + hero.size/2
+    }
+
+    //resets the hero if he falls off canvas
+    if (hero.y > 1000) {
+        hero.x = hero.startingX
+        hero.y = hero.startingY
     }
 
 }

@@ -7,38 +7,98 @@ let forestBg = {
 
 
 //Creates an array for the walls of the rectangles/ground/platform
-// let walls = [ 
-//     {
-//         x: 697,
-//         y: 740,
-//         //the amount of green of the walls
-//         g: 0,
-//         width: 8,
-//         height: 119.7
-//     },
-//     {
-//      x: 600,
-//      y: 600,
-//      g: 0,
-//      width: 8,
-//      height: 59.5
-//     },
-//     {
-//      x: 200,
-//      y: 520,
-//      g: 0,
-//      width: 8,
-//      height: 99.5 
-//     },
-//     {
-//         x: 475,
-//         y: 392,
-//         g: 0,
-//         width: 8,
-//         height: 34.5
-//     }
+let walls = [ 
+    {
+        x: 300,
+        y: 947,
+        //the amount of green of the walls
+        g: 100,
+        width: 8,
+        height: 34.8
+    },
+    {
+        x: 100,
+        y: 890,
+        //the amount of green of the walls
+        g: 100,
+        width: 8,
+        height: 14.8
+    },
+    // {
+    //     x: 300,
+    //     y: 890,
+    //     //the amount of green of the walls
+    //     g: 100,
+    //     width: 8,
+    //     height: 56
+    // },
+    {
+        x: 578,
+        y: 820,
+        //the amount of green of the walls
+        g: 100,
+        width: 8,
+        height: 29.8
+    },
+    {
+        x: 323,
+        y: 700,
+        //the amount of green of the walls
+        g: 100,
+        width: 8,
+        height: 24.5
+    },
+    {
+        x: 548,
+        y: 600,
+        g: 100,
+        width: 8,
+        height: 24.5
+       },
+    {
+     x: 452,
+     y: 600,
+     g: 100,
+     width: 8,
+     height: 24.5
+    },
+    {
+        x: 228,
+        y: 520,
+        g: 100,
+        width: 8,
+        height: 17.5 
+    },
+    {
+        x: 518,
+        y: 405,
+        g: 100,
+        width: 8,
+        height: 34.5 
+    },
+    {
+     x: 122.5,
+     y: 420,
+     g: 100,
+     width: 8,
+     height: 24.5 
+    },
+    {
+        x: 398,
+        y: 300,
+        g: 100,
+        width: 8,
+        height: 17.5
+    },
+    {
+        x: 648,
+        y: 300,
+        g: 100,
+        width: 8,
+        height: 17.5
+    }
    
-// ]
+]
 
 
 /**
@@ -56,13 +116,13 @@ for(let platform of platforms) {
 /**
  * Creates the walls
 */
-// function createForestWalls() {
-//     //creates a loop with the variable wall (that changes vallues depending on the array)
-//     for( let wall of walls) {
-//         checkOverlapWallHero(wall)
-//         drawWall(wall)
-//     }
-// }
+function createForestWalls() {
+    //creates a loop with the variable wall (that changes vallues depending on the array)
+    for( let wall of walls) {
+        checkOverlapWallHero(wall)
+        drawWall(wall)
+    }
+}
 
 /**
  * Check if the hero overlaps with the platforms
@@ -110,61 +170,61 @@ function checkOverlapPlatformHero(platform) {
   /**
   * Check if the hero overlaps with the walls of the platforms
   */
-//    function checkOverlapWallHero(wall) {
+   function checkOverlapWallHero(wall) {
     
-//     //if the hero is at the right of the wall
-//     if (hero.x > wall.x) {
+    //if the hero is at the right of the wall
+    if (hero.x > wall.x) {
 
-//          // checking if each side of the platforms overlap with the hero
-//         if (
-//        wall.y + wall.height / 2 >= hero.y - hero.h / 2 && // rect1 bottom and hero top
-//        wall.y - wall.height / 2 <= hero.y + hero.h / 2 &&   // rect1 top and hero bottom
-//        wall.x + wall.width / 2 >= hero.x - hero.w / 2 && // rect1 right and hero left
-//        wall.x - wall.width / 2 <= hero.x + hero.w / 2 // rect1 left and hero right 
-//        ){
-//         // changes the color of the wall to green
-//         //    wall.g = 200;
-//            //sets the hero outside of the wall 
-//            hero.x = wall.x + wall.width/2 + hero.size/2;
+         // checking if each side of the platforms overlap with the hero
+        if (
+       wall.y + wall.height / 2 >= hero.y - hero.h / 2 && // rect1 bottom and hero top
+       wall.y - wall.height / 2 <= hero.y + hero.h / 2 &&   // rect1 top and hero bottom
+       wall.x + wall.width / 2 >= hero.x - hero.w / 2 && // rect1 right and hero left
+       wall.x - wall.width / 2 <= hero.x + hero.w / 2 // rect1 left and hero right 
+       ){
+        // changes the color of the wall to green
+        //    wall.g = 200;
+           //sets the hero outside of the wall 
+           hero.x = wall.x + wall.width/2 + hero.width/2;
            
-//            //if the hero is jumping while touching the wall, call jumpingOff()
-//            if (hero.jump.state === "active"){
-//             jumpingOff();
-//         }
+           //if the hero is jumping while touching the wall, call jumpingOff()
+           if (hero.jump.state === "active"){
+            jumpingOff();
+        }
 
-//        }  else { //if the hero does not touch the wall
-//         //the wall colors becomes black
-//         wall.g = 0
-//        }
+       }  else { //if the hero does not touch the wall
+        //the wall colors becomes black
+        wall.g = 0
+       }
 
-//     //if the hero is at the left of the wall
-//     } else if (hero.x < wall.x) {
+    //if the hero is at the left of the wall
+    } else if (hero.x < wall.x) {
 
-//         // checking if each side of the platforms overlap with the hero
-//         if (
-//             wall.y + wall.height / 2 >= hero.y - hero.h / 2 && // rect1 bottom and hero top
-//             wall.y - wall.height / 2 <= hero.y + hero.h / 2 &&   // rect1 top and hero bottom
-//             wall.x + wall.width / 2 >= hero.x - hero.w / 2 && // rect1 right and hero left
-//             wall.x - wall.width / 2 <= hero.x + hero.w / 2 // rect1 left and hero right 
-//             ){
+        // checking if each side of the platforms overlap with the hero
+        if (
+            wall.y + wall.height / 2 >= hero.y - hero.h / 2 && // rect1 bottom and hero top
+            wall.y - wall.height / 2 <= hero.y + hero.h / 2 &&   // rect1 top and hero bottom
+            wall.x + wall.width / 2 >= hero.x - hero.w / 2 && // rect1 right and hero left
+            wall.x - wall.width / 2 <= hero.x + hero.w / 2 // rect1 left and hero right 
+            ){
 
-//                 //changes the color of the wall to green
-//                 // wall.g = 200;
-//                 //sets the hero outside of the wall
-//                 hero.x = wall.x - wall.width/2 - hero.size/2;
+                //changes the color of the wall to green
+                // wall.g = 200;
+                //sets the hero outside of the wall
+                hero.x = wall.x - wall.width/2 - hero.width/2;
 
-//                 //if the hero is jumping while touching the wall, call jumpingOff()
-//                 if (hero.jump.state === "active"){
-//                     jumpingOff();
-//                 }
+                //if the hero is jumping while touching the wall, call jumpingOff()
+                if (hero.jump.state === "active"){
+                    jumpingOff();
+                }
                
-//             }  else {  //if the hero does not touch the wall
-//                 //the wall colors becomes black
-//              wall.g = 0
-//             }
+            }  else {  //if the hero does not touch the wall
+                //the wall colors becomes black
+             wall.g = 0
+            }
 
-//     }
-//    }
+    }
+   }
 
     /**
     * What happens if the hero jumps off from a platform
@@ -203,7 +263,7 @@ function drawPlatform(platform) {
 */
 function drawWall(wall) {
     push();
-    fill(0, wall.g, 0);
+    fill(0);
     rect(wall.x, wall.y, wall.width, wall.height);
     pop()
 }

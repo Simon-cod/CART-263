@@ -2,17 +2,24 @@
 //creates a vraiable for the ending platform
 endplatform = {
     x: 960,
-    y: 422.5,
+    y: 392.5,
     width: 40,
     height: 10,
 }
 
+function end1stGame() {
+
+    if (deathCounter > 4 || bomb.y > 2500) {
+        gameState = "2ndTitleScreen"
+    }
+}
 /**
  * regroups all the functions about the game
 */
 function gameMechanics() {
     drawEndPlatform();
     checkOverlapHeroEndPlatform();
+    
 }
 
 /**
@@ -51,7 +58,7 @@ function checkOverlapHeroEndPlatform(){
 */
 function firstTitle() {
 
-    background(100, 60, 40);
+    background(warzoneBg.r, warzoneBg.g, warzoneBg.b);
     push();
     textSize(140);
     textAlign(CENTER, TOP);

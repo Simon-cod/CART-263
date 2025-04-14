@@ -33,6 +33,7 @@ function draw() {
         //loads the title screen
         firstTitle();
     }else if (gameState === "2ndTitleScreen") {
+        deathCounter = 0;
         //loads the game
         secondTitle();
     }else if (gameState === "1stLevel") {
@@ -56,9 +57,11 @@ function run1stGame() {
     background(51)
     createBackgroundRectangle();
     drawSunWarzone();
-    createBomb();
     createPlatforms();
     moveBackground();
+    end1stGame();
+    // bombCrater();
+    createBomb();
     
     
 }
@@ -67,7 +70,8 @@ function run2ndGame() {
 
     background(forestBg.r, forestBg.g, forestBg.b)
     drawSunForest();
-    createForestPlatforms()
+    createForestWalls();
+    createForestPlatforms();
     gameMechanics();
     drawHero();
     moveHero();
