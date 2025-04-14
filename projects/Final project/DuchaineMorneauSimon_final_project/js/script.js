@@ -9,7 +9,7 @@
 
 
 //creates a variable for the state of the game
-let gameState = "titleScreen" //can be "titleScreen", "start" or "gameWon"
+let gameState = "titleScreen" //can be "titleScreen", "1stLevel", "2ndLevel" or "gameWon"
 
 //Our main character
 let hero = {
@@ -56,9 +56,12 @@ function draw() {
     if (gameState === "titleScreen") {
         //loads the title screen
         title();
-    }else if (gameState === "start") {
+    }else if (gameState === "1stLevel") {
         //loads the game
-        runGame();
+        run1stGame();
+    } else if (gameState === "2ndLevel") {
+        //loads the game
+        run2ndGame();
     } else if (gameState === "gameWon") {
         //loads the game over screen
         gameWon();
@@ -69,7 +72,7 @@ function draw() {
 /**
  * Runs the game
 */
-function runGame() {
+function run1stGame() {
 
     background(51)
     createBackgroundRectangle();
@@ -77,8 +80,15 @@ function runGame() {
     createPlatforms();
     moveBackground();
     createBomb();
-    // gameMechanics();
-    // drawHero();
+    
+}
+
+function run2ndGame() {
+
+    background(100, 155, 100)
+    drawSun();
+    gameMechanics();
+    drawHero();
 }
 
 /**
@@ -107,8 +117,11 @@ function keyPressed() {
     } else if 
     //Starts the game when spacebar is pressed
      (keyCode === 32 && gameState === "titleScreen") { //Spacebar
-        gameState = "start"
+        gameState = "1stLevel"
     } //Starts the game when the game is won
+    else if (keyCode === 32 && gameState === "1stLevel") { //Spacebar
+        gameState = "2ndLevel"
+    } 
     else if (keyCode === 32 && gameState === "titleScreen") { //Spacebar
         gameState = "titleScreen"
     } 

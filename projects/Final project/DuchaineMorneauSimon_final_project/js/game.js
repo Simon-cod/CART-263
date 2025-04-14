@@ -35,21 +35,28 @@ function title() {
     textSize(180);
     textAlign(CENTER, TOP);
     fill(0);
-    text("The Bomb", width/2, 150);
+    text("The Bomb", width/2, 65);
     pop();
 
     push();
     textSize(30);
     textAlign(CENTER, TOP);
     fill(0);
-    text("2nd level", width/2, 330);
+    text("1st level", width/2, 230);
     pop();
 
     push();
     textSize(28);
     textAlign(CENTER, TOP);
     fill(255, 200, 200);
-    text("Try to avoid the buildings and be mindful of your speed! ", width/2, 400);
+    text("You move a bomb wit the volume of your voice.", width/2, 300);
+    pop();
+
+    push();
+    textSize(28);
+    textAlign(CENTER, TOP);
+    fill(255, 200, 200);
+    text("Try to avoid the buildings and be mindful of your speed! ", width/2, 350);
     pop();
 
     // push();
@@ -59,19 +66,19 @@ function title() {
     // text("(the hero is the cube at the bottom left)", width/2, 438);
     // pop();
     
-    push();
-    textSize(50);
-    textAlign(CENTER, TOP);
-    fill(0);
-    text("Controls:", width/2, 520);
-    pop();
+    // push();
+    // textSize(50);
+    // textAlign(CENTER, TOP);
+    // fill(0);
+    // text("Controls:", width/2, 520);
+    // pop();
 
-    push();
-    textSize(28);
-    textAlign(CENTER, TOP);
-    fill(255, 200, 200);
-    text("Left & Right Arrow to move the Bomb", width/2, 625);
-    pop();
+    // push();
+    // textSize(28);
+    // textAlign(CENTER, TOP);
+    // fill(255, 200, 200);
+    // text("Left & Right Arrow to move the Bomb", width/2, 625);
+    // pop();
 
     // push();
     // textSize(28);
@@ -85,14 +92,14 @@ function title() {
     textSize(28);
     textAlign(CENTER, TOP);
     fill(255, 200, 200);
-    text("PRESS SPACE-BAR TO START", width/2, 920);
+    text("PRESS SPACE-BAR TO START", width/2, 450);
     pop();
 
     push();
     textSize(40);
     textAlign(CENTER, TOP);
     fill(0);
-    text("Created by Simon Duchaine Morneau", width/2, 815);
+    text("Created by Simon Duchaine Morneau", width/2, 500);
     pop();
 
 }
