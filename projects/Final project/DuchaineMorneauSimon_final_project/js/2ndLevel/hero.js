@@ -10,6 +10,8 @@
 
 //Our main character
 let hero = {
+    startingX:40,
+    startingY: 882.5,
     x: 40,
     y: 882.5,
     w: 30,
@@ -45,20 +47,6 @@ function heroDeath() {
     hero.jump.state = "no"
 }
 
-
-// /**
-//  * Runs the game
-// */
-// function runGame() {
-
-//     background(100, 0, 0)
-//     drawSun();
-//     // createWalls();
-//     // createPlatforms();
-//     drawHero();
-//     moveHero();
-//     heroJump();
-// }
 
 /**
  * Draws the hero
@@ -154,3 +142,10 @@ function heroJump() {
     } 
 }
 
+/**
+ * resets the hero position to it's starting position
+*/
+function heroReset() {
+    hero.x = hero.startingX
+    hero.y = hero.startingY
+}

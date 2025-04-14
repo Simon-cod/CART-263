@@ -55,17 +55,18 @@ function run1stGame() {
 
     background(51)
     createBackgroundRectangle();
-    drawSun();
+    drawSunWarzone();
+    createBomb();
     createPlatforms();
     moveBackground();
-    createBomb();
+    
     
 }
 
 function run2ndGame() {
 
-    background(100, 155, 100)
-    drawSun();
+    background(forestBg.r, forestBg.g, forestBg.b)
+    drawSunForest();
     createForestPlatforms()
     gameMechanics();
     drawHero();
@@ -100,9 +101,11 @@ function keyPressed() {
     } else if (keyCode === 32 && gameState === "2ndTitleScreen") { //Spacebar
         gameState = "2ndLevel"
     } //Starts the game when the game is won
-    else if (keyCode === 32 && gameState === "2ndLevel" || gameState === "gameWon") { //Spacebar
+    else if (keyCode === 32 && gameState === "2ndLevel") { //Spacebar
         gameState = "1stTitleScreen"
-    } 
+    } else if (keyCode === 32 && gameState === "gameWon"){ //Spacebar
+        gameState = "1stTitleScreen"
+    }
 }
 
 //when the keys are released

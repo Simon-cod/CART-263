@@ -1,3 +1,10 @@
+//Background color for the second level
+let forestBg = {
+    r: 100,
+    g: 155,
+    b: 100
+}
+
 
 //Creates an array for the walls of the rectangles/ground/platform
 // let walls = [ 

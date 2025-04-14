@@ -10,12 +10,23 @@ let sun = {
 }
 
 /**
- * Draws the Sun
+ * Draws the Sun for the first level
  */
-function drawSun() {
+function drawSunWarzone() {
     push();
     noStroke();
     fill(sun.r, sun.g, sun.b);
+    circle(sun.x, sun.y, sun.size);
+    pop();
+}
+
+/**
+ * Draws the Sun for the first level
+ */
+function drawSunForest() {
+    push();
+    noStroke();
+    fill(200, 255, 200);
     circle(sun.x, sun.y, sun.size);
     pop();
 }

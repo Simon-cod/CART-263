@@ -207,6 +207,7 @@ function constrainBombInsideCanvas() {
  * makes the bomb reset at the top of the canvas
  */
 function bombExplosion() {
+    
     //resets everything to it's initial state
     bomb.shooting.direction = "none"
     bomb.y = bomb.originalY;
@@ -214,10 +215,3 @@ function bombExplosion() {
     bomb.shooting.speed = bomb.shooting.initialSpeed
     bomb.speed = 0.1
 }
-
-/**
- * makes you win the game if you kill the hero!
- */
-function heroDeath() {
-    gameState = "gameWon"
-} 

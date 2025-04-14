@@ -1,3 +1,10 @@
+//color for the background of the first level
+let warzoneBg = {
+    r: 100,
+    g:60,
+    b:40
+}
+
 let bgRec = {
     topX: 0,
     topY: 0,
@@ -14,7 +21,7 @@ function createBackgroundRectangle() {
     realY = bgRec.topY + 1000
 
     push()
-    fill(100, 60, 40);
+    fill(warzoneBg.r, warzoneBg.g, warzoneBg.b);
     noStroke();
     rect(realX, realY, bgRec.w, bgRec.h);
     pop()
@@ -158,8 +165,8 @@ let platforms = [
     },
     {   
         x: 800,
-        initialY: 800,
-        y: 800,
+        initialY: 820,
+        y: 820,
         b: 0,
         r: 0,
         width: 450,
@@ -176,8 +183,8 @@ let platforms = [
     },
     {
         x: 180,
-        initialY: 540,
-        y: 540,
+        initialY: 520,
+        y: 520,
         b: 0,
         r: 0,
         width: 100,
@@ -185,8 +192,8 @@ let platforms = [
     },
     {
         x: 800,
-        initialY: 415,
-        y: 415,
+        initialY: 435,
+        y: 435,
         b: 0,
         r: 0,
         width: 560,
@@ -194,17 +201,17 @@ let platforms = [
     },
     {
         x: 0,
-        initialY: 392,
-        y: 392,
+        initialY: 420,
+        y: 420,
         b: 0,
         r: 0,
         width: 247,
-        height: 35
+        height: 25
     },
     {
-        x: 550,
-        initialY: 280,
-        y: 280,
+        x: 525,
+        initialY: 300,
+        y: 300,
         b: 0,
         r: 0,
         width: 250,
@@ -244,8 +251,11 @@ function checkOverlapPlatformBomb(platform) {
        platform.x + platform.width / 2 >= bomb.x - bomb.w/2 && // platform right and bomb left
        platform.x - platform.width / 2 <= bomb.x + bomb.w/2 // platform1 left and bomb right 
        ){
+       
+        
         bombExplosion();
         resetPlatforms();
+        bombCrater(platform)
        }
        console.log(bomb.speed)
    }
@@ -278,4 +288,15 @@ function resetPlatforms(){
     bgRec.topX = 0
     bgRec.topY = 0
     sun.y = 80
+   
+}
+
+function bombCrater(platform) {
+    //puts a hole in the platform
+    push();
+    fill(250)
+    noStroke()
+    ellipse(platform.x, platform.y, 500, 500)
+    pop();
+
 }
