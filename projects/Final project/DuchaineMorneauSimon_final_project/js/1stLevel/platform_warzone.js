@@ -140,8 +140,8 @@ let platforms = [
     },
     {
         x: 0,
-        initialY: 840,
-        y: 840,
+        initialY: 890,
+        y: 890,
         b: 0,
         r: 0,
         width: 200,

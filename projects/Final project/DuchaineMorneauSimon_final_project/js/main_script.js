@@ -9,38 +9,14 @@
 
 
 //creates a variable for the state of the game
-let gameState = "titleScreen" //can be "titleScreen", "1stLevel", "2ndLevel" or "gameWon"
-
-//Our main character
-let hero = {
-    x: 40,
-    y: 785,
-    w: 30,
-    h: 30,
-    size: 30,
-    //the hero's speed
-    jump: {
-        state: "no",
-        direction: "none",
-        speed: 9,
-        //variable to calculate the jump's height
-        y: 0,
-        //the maximum height of the jump
-        maxY: 30 
-    },
-    deceleration: { //gravity
-        y: 0.3
-    },
-    direction: "none", //which way is the cube going
-    action: "walking", //can be walking, jumping or slashing
-}
+let gameState = "1stTitleScreen" //can be "titleScreen", "1stLevel", "2ndLevel" or "gameWon"
 
 /**
  * creates the canvas and sets the rectangle mode to center
 */
 function setup() {
 
-    createCanvas(1000, 2000)
+    createCanvas(1000, 1000)
 
     //sets that all the x and y coordinates for rectangles and cubes determine the position of the center of the shape
     rectMode(CENTER)
@@ -53,9 +29,12 @@ function setup() {
 */
 function draw() {
 
-    if (gameState === "titleScreen") {
+    if (gameState === "1stTitleScreen") {
         //loads the title screen
-        title();
+        firstTitle();
+    }else if (gameState === "2ndTitleScreen") {
+        //loads the game
+        secondTitle();
     }else if (gameState === "1stLevel") {
         //loads the game
         run1stGame();
@@ -87,52 +66,54 @@ function run2ndGame() {
 
     background(100, 155, 100)
     drawSun();
+    createForestPlatforms()
     gameMechanics();
     drawHero();
+    moveHero();
+    heroJump();
 }
 
-/**
- * Draws the hero
-*/
-function drawHero() {
-    
-
-    push();
-    fill(0, 0, 0);
-    noStroke();
-    square (hero.x, hero.y, hero.size);
-    pop();
-
-}
 
 //when the keys are pressed
 function keyPressed() {
     
     if (keyCode === 39) { //right arrow
-        bomb.shooting.direction = "right";
-        console.log("right")
+        hero.direction = "right";
     } else if (keyCode === 37) { //left arrow
-        bomb.shooting.direction = "left";
-        console.log("left")
+        hero.direction = "left";
+    } else if (keyCode === 38 && keyCode === 39) { //up & right
+        hero.jump.state = "active";
+        hero.direction = "right";
+    } else if (keyCode === 38 && keyCode === 37) { //up & left
+        hero.jump.state = "active";
+        hero.direction = "left";
+    } else if (keyCode === 38) { //up arrow
+        hero.jump.state = "active";
+    } else if (keyCode === 16) { //shift key
+        hero.speed.state = "fast"
     } else if 
     //Starts the game when spacebar is pressed
-     (keyCode === 32 && gameState === "titleScreen") { //Spacebar
+     (keyCode === 32 && gameState === "1stTitleScreen") { //Spacebar
         gameState = "1stLevel"
-    } //Starts the game when the game is won
-    else if (keyCode === 32 && gameState === "1stLevel") { //Spacebar
+    } else if (keyCode === 32 && gameState === "1stLevel") { //Spacebar
+        gameState = "2ndTitleScreen"
+    } else if (keyCode === 32 && gameState === "2ndTitleScreen") { //Spacebar
         gameState = "2ndLevel"
-    } 
-    else if (keyCode === 32 && gameState === "titleScreen") { //Spacebar
-        gameState = "titleScreen"
+    } //Starts the game when the game is won
+    else if (keyCode === 32 && gameState === "2ndLevel" || gameState === "gameWon") { //Spacebar
+        gameState = "1stTitleScreen"
     } 
 }
 
 //when the keys are released
 function keyReleased() {
     if (keyCode == 37 ) { //left arrow
-        bomb.shooting.direction = "none"
+        hero.direction = "none"
     } else if (keyCode == 39) { //right arrow
-        bomb.shooting.direction = "none"
+        hero.direction = "none"
+    } 
+
+    if (keyCode === 16) { //shift key
+        hero.speed.state = "normal"
     }
 }
-

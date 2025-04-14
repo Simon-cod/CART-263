@@ -26,80 +26,101 @@ function drawEndPlatform() {
 }
 
 /**
- * draws the titleScreen
+ * draws the first titleScreen
 */
-function title() {
+function firstTitle() {
 
     background(100, 60, 40);
     push();
-    textSize(180);
+    textSize(140);
     textAlign(CENTER, TOP);
     fill(0);
-    text("The Bomb", width/2, 65);
+    text("The Warzone", width/2, 130);
     pop();
 
     push();
     textSize(30);
     textAlign(CENTER, TOP);
     fill(0);
-    text("1st level", width/2, 230);
+    text("1st level", width/2, 300);
     pop();
 
     push();
     textSize(28);
     textAlign(CENTER, TOP);
     fill(255, 200, 200);
-    text("You move a bomb wit the volume of your voice.", width/2, 300);
+    text("You move a bomb wit the volume of your voice.", width/2, 475);
     pop();
 
     push();
     textSize(28);
     textAlign(CENTER, TOP);
     fill(255, 200, 200);
-    text("Try to avoid the buildings and be mindful of your speed! ", width/2, 350);
+    text("Try to avoid the buildings and be mindful of your speed! ", width/2, 525);
     pop();
-
-    // push();
-    // textSize(20);
-    // textAlign(CENTER, TOP);
-    // fill(255, 200, 200);
-    // text("(the hero is the cube at the bottom left)", width/2, 438);
-    // pop();
-    
-    // push();
-    // textSize(50);
-    // textAlign(CENTER, TOP);
-    // fill(0);
-    // text("Controls:", width/2, 520);
-    // pop();
-
-    // push();
-    // textSize(28);
-    // textAlign(CENTER, TOP);
-    // fill(255, 200, 200);
-    // text("Left & Right Arrow to move the Bomb", width/2, 625);
-    // pop();
-
-    // push();
-    // textSize(28);
-    // textAlign(CENTER, TOP);
-    // fill(255, 200, 200);
-    // text("Up & Down Arrow to move the fireBall", width/2, 700
-    // );
-    // pop();
 
     push();
     textSize(28);
     textAlign(CENTER, TOP);
     fill(255, 200, 200);
-    text("PRESS SPACE-BAR TO START", width/2, 450);
+    text("PRESS SPACE-BAR TO START", width/2, 850);
     pop();
 
     push();
     textSize(40);
     textAlign(CENTER, TOP);
     fill(0);
-    text("Created by Simon Duchaine Morneau", width/2, 500);
+    text("Created by Simon Duchaine Morneau", width/2, 900);
+    pop();
+
+}
+
+/**
+ * draws the first titleScreen
+*/
+function secondTitle() {
+
+    background(100, 155, 100);
+    push();
+    textSize(140);
+    textAlign(CENTER, TOP);
+    fill(0);
+    text("The Aftermath", width/2, 130);
+    pop();
+
+    push();
+    textSize(30);
+    textAlign(CENTER, TOP);
+    fill(0);
+    text("2nd level", width/2, 300);
+    pop();
+
+    push();
+    textSize(28);
+    textAlign(CENTER, TOP);
+    fill(255, 200, 200);
+    text("You control a porcupine with the keypad.", width/2, 475);
+    pop();
+
+    push();
+    textSize(28);
+    textAlign(CENTER, TOP);
+    fill(255, 200, 200);
+    text("Move peacefully through the war ruins.", width/2, 525);
+    pop();
+
+    push();
+    textSize(28);
+    textAlign(CENTER, TOP);
+    fill(255, 200, 200);
+    text("PRESS SPACE-BAR TO START", width/2, 850);
+    pop();
+
+    push();
+    textSize(40);
+    textAlign(CENTER, TOP);
+    fill(0);
+    text("Created by Simon Duchaine Morneau", width/2, 900);
     pop();
 
 }
@@ -111,7 +132,7 @@ function gameWon() {
     
     background(100, 0, 0);
     push();
-    textSize(150);
+    textSize(140);
     textAlign(CENTER, TOP);
     fill(255, 200, 200);
     text("Game Won!", width/2, height/2 - 200);
