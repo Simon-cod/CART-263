@@ -27,6 +27,12 @@ document.querySelector("#body").appendchild(this.irisSepalDiv)
 
 }
 
+renderIrises() {
+    push();
+    Fill (this.color);
+    
+}
+
 renderFlower() {
     this.flowerStemDiv.classList.add("flower");
     this.flowerStemDiv.style.width = this.stemThickness+"px";
