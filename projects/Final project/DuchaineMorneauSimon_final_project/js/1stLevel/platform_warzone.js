@@ -258,7 +258,8 @@ function checkOverlapPlatformBomb(platform) {
        platform.x - platform.width / 2 <= bomb.x + bomb.w/2 // platform1 left and bomb right 
        ){
        
-        
+       
+
         bombExplosion();
         resetPlatforms();
        }
@@ -297,7 +298,9 @@ function resetPlatforms(){
 
 function bombCrater() {
     
+    
     if (bomb.state = "explosion") {
+        let craterX = bomb.x
     //puts a hole in the platform
     push();
     fill(warzoneBg.r, warzoneBg.g, warzoneBg.b)
