@@ -108,27 +108,40 @@ window.onload = async function(){
 console.log(irisesWithColorsSorted[0].petalWidth)
 
 let flowers = [];
-let positionX = 0;
-let positionY = 300;
+let positionX = 200;
+let positionY = 600;
+
 
 
 for (iris of irisesWithColorsSorted) {
     
 
-positionX += 20
-let newFlower = new Iris ( positionX, positionY, iris.color, iris.sepalLength, iris.sepalWidth, iris.petalLength, iris.petalWidth, iris.spcies);
+positionX += 6000
+positionY += 1000
+let newFlower = new Iris ( positionX, positionY, iris.color, iris.sepalLength, iris.sepalWidth, iris.petalLength, iris.petalWidth, iris.species);
 
 flowers.push(newFlower)
 
-
 }
 
-for (let i = 0; i < flowers.lenght; i++) {
+
+
+
+for (let i = 0; i < flowers.length; i++) {
     // Add the flower to the array of flowers
+    
     flowers[i].renderIris();
+
   }
 
-console.log(flowers)
+  
+
+  let body = document.querySelector("body")
+
+
+  console.log(body)
+
+// console.log(flowers)
        
     } catch(err){
         console.log(err)

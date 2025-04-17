@@ -5,55 +5,60 @@ constructor(x, y, color, sepalLenght, sepalWidth, petalLenght, petalWidth, speci
 this.x = x
 this.y = y
 this.color = color;
-this.sepalLenght = sepalLenght;
-this.sepalWidth = sepalWidth;
+this.sepalLenght = sepalLenght * 8;
+this.sepalWidth = sepalWidth * 300;
 this.petalLenght = petalLenght;
 this.petalWidth = petalWidth;
 this.species = species;
 
+
 this.irisSepalDiv = document.createElement("div");
-this.irisrPetalDiv = document.createElement("div");
+this.irisPetalDiv = document.createElement("div");
+
+let self = this;
+
+this.irisSepalDiv.addEventListener("click", changeColor);
+        function changeColor(e) {
+          console.log(e.target);
+          console.log(this);
+          console.log(self);
+
+          self.color = `rgb(${Math.random()*200+50}, ${Math.random()*200+50}, ${Math.random()*200+50})`
+          
+      
+          //update the actual div...
+          self.irisSepalDiv.style.background = self.color;
+         
+    
+          // and also the petal element needs to change color
+          self.irisPetalDiv.style.background = self.color
+         
+       }
 }
+
 
 renderIris() {
-this.irisSepalDiv.classList.add("flower");
-this.irisSepalDiv.style.height = this.sepalLenght + "px";
-this.irisSepalDiv.style.width = this.sepalWidth + "px";
-this.irisSepalDiv.style.color = this.color;
-this.irisSepalDiv.left = this.x + "px";
-this.irisSepalDiv.top = this.y + "px";
-//add to the Dom
-document.querySelector("#body").appendchild(this.irisSepalDiv)
-
-}
-
-renderIrises() {
-    push();
-    Fill (this.color);
     
-}
+this.irisSepalDiv.classList.add("flower");
+this.irisSepalDiv.style.height = this.sepalLenght+"px";
+this.irisSepalDiv.style.width = this.sepalWidth+"px";
+this.irisSepalDiv.style.background = this.color;
+this.irisSepalDiv.style.left = this.x+"px";
+this.irisSepalDiv.style.top = this.y+"px";
 
-renderFlower() {
-    this.flowerStemDiv.classList.add("flower");
-    this.flowerStemDiv.style.width = this.stemThickness+"px";
-    this.flowerStemDiv.style.height = this.stemLength+"px";
-    this.flowerStemDiv.style.background = `rgb(${this.stemColor.r},${this.stemColor.g},${this.stemColor.b})`;
-    this.flowerStemDiv.style.left = this.x+"px";
-    this.flowerStemDiv.style.top = this.y-this.stemLength+"px";
-     //add to the DOM
-     document.getElementsByClassName("grass")[0].appendChild(this.flowerStemDiv);
-  
-     this.flowerPetalDiv.classList.add("petal");
-     this.flowerPetalDiv.style.width = this.size+"px";
-     this.flowerPetalDiv.style.height = this.size+"px";
-     this.flowerPetalDiv.style.borderRadius = this.size+"px";
-     this.flowerPetalDiv.style.background = `rgb(${this.centreColor.r},${this.centreColor.g},${this.centreColor.b})`;
-     this.flowerPetalDiv.style.left = (this.x-this.size/2)+"px";
-     this.flowerPetalDiv.style.top = (this.y-this.stemLength-this.size/2)+"px";
-     this.flowerPetalDiv.style.borderWidth = this.petalThickness+"px";
-     this.flowerPetalDiv.style.borderColor =  `rgb(${this.petalColor.r},${this.petalColor.g},${this.petalColor.b})`;
-      //add to the DOM
-      document.getElementsByClassName("grass")[0].appendChild(this.flowerPetalDiv);
-   }
+
+//add to the Dom
+document.body.appendChild(this.irisSepalDiv);
+
+this.irisPetalDiv.classList.add("petal");
+this.irisPetalDiv.style.height = this.petalLenght;
+this.irisPetalDiv.style.width = this.petalWidth;
+this.irisPetalDiv.style.background = this.color;
+this.irisPetalDiv.style.left = this.x+"px";
+this.irisPetalDiv.style.top = this.y-this.sepalLenght + "px"
+//add to the Dom
+document.body.appendChild(this.irisPetalDiv);
+
+}
 
 }
