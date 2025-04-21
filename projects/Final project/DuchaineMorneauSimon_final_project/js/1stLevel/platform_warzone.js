@@ -17,6 +17,7 @@ let realY = undefined
 let craterXs = [] ;//empty array
 let craterYs = []; //empty7 array
 let craterNmb = -1;
+let craterSizes = []; //empty array
 
 function createBackgroundRectangle() {
 
@@ -314,6 +315,11 @@ function bombCraters(platform, counter) {
 
     let craterX = 0
 
+    
+    let craterSize = Math.random()*45 + 30
+
+    console.log(craterSize)
+
 if (bomb.x >= platform.x) {
 
     craterX = platform.x + (bomb.x - platform.x)
@@ -328,34 +334,13 @@ if (bomb.x >= platform.x) {
     craterXs.push(craterX)
     craterYs.push(counter)
 
+    craterSizes.push(craterSize);
+
     console.log(craterXs)
     console.log(craterNmb)
+    console.log(craterSizes)
     
 }
-
-// function bombCrater() {
-    
-//    if (bomb.state = "explosion") {
-
-   
-//     craterNmb += 1
-    
-//     let craterX = bomb.x
-//     let craterY = bomb.y
-
-//     craterXs.push(craterX)
-//     craterYs.push(craterY)
-
-//     console.log(craterXs)
-//     //puts a hole in the platform
-    
-
-//    } else {
-//     //do nothing
-//    }
-    
-
-// }
 
 function moveCrater() {
 
@@ -364,7 +349,7 @@ function moveCrater() {
         push();
         fill(warzoneBg.r, warzoneBg.g, warzoneBg.b)
         noStroke();
-        ellipse(craterXs[i], platforms[craterYs[i]].y - 20, 50, 50)
+        ellipse(craterXs[i], platforms[craterYs[i]].y - 20, craterSizes[i] + 35, craterSizes[i])
         pop();
 
     }

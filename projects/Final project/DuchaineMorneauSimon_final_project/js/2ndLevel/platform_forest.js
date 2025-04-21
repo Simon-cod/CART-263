@@ -267,3 +267,16 @@ function drawWall(wall) {
     rect(wall.x, wall.y, wall.width, wall.height);
     pop()
 }
+
+function drawForestCraters() {
+
+    for (i=0; i < craterXs.length; i++) {
+
+        push();
+        fill(forestBg.r, forestBg.g, forestBg.b)
+        noStroke();
+        ellipse(craterXs[i], platforms[craterYs[i]].y - 20, craterSizes[i] + 35, craterSizes[i])
+        pop();
+
+    }
+}

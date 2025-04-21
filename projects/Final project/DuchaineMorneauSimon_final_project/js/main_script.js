@@ -60,8 +60,9 @@ function run1stGame() {
     createPlatforms();
     moveBackground();
     end1stGame();
-    createBomb();
     moveCrater();
+    createBomb();
+    
     
     
 }
@@ -73,6 +74,7 @@ function run2ndGame() {
     createForestWalls();
     createForestPlatforms();
     gameMechanics();
+    drawForestCraters();
     drawHero();
     moveHero();
     heroJump();
@@ -107,6 +109,9 @@ function keyPressed() {
     } //Starts the game when the game is won
     else if (keyCode === 32 && gameState === "2ndLevel") { //Spacebar
         gameState = "1stTitleScreen"
+        heroReset();
+        craterXs = [];
+        craterYs = []
     } else if (keyCode === 32 && gameState === "gameWon"){ //Spacebar
         gameState = "1stTitleScreen"
     }

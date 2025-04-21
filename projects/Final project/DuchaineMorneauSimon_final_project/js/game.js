@@ -49,6 +49,8 @@ function checkOverlapHeroEndPlatform(){
    
         gameState = "gameWon"   
         heroReset();
+        craterXs = [];
+        craterYs = [];
    
        }
    }
