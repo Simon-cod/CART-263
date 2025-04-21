@@ -60,8 +60,8 @@ function run1stGame() {
     createPlatforms();
     moveBackground();
     end1stGame();
-    // bombCrater();
     createBomb();
+    moveCrater();
     
     
 }

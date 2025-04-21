@@ -14,6 +14,9 @@ let bgRec = {
 }
 let realX = undefined
 let realY = undefined
+let craterXs = [] ;//empty array
+let craterYs = []; //empty7 array
+let craterNmb = -1;
 
 function createBackgroundRectangle() {
 
@@ -231,13 +234,21 @@ let platforms = [
 function createPlatforms() {
 //creates a loop with the variable platform (that changes vallues depending on the array)
 
-
+let counter = 0
 
 for(let platform of platforms) {
-    checkOverlapPlatformBomb(platform);
+    checkOverlapPlatformBomb(platform, counter);
     drawPlatform(platform);
     movePlatform(platform);
+    counter += 1
 }
+
+if (bomb.state === "explosion") {
+    bombExplosion();
+    resetPlatforms();
+}
+
+
 }
 
 function moveBackground(){
@@ -248,7 +259,7 @@ function moveBackground(){
 /**
  * Check if the bomb overlaps with the platforms
 */
-function checkOverlapPlatformBomb(platform) {
+function checkOverlapPlatformBomb(platform, counter) {
 
     // if each side of the platform overlap/touch the fireball, resets it to it's origin position
     if (
@@ -258,12 +269,14 @@ function checkOverlapPlatformBomb(platform) {
        platform.x - platform.width / 2 <= bomb.x + bomb.w/2 // platform1 left and bomb right 
        ){
        
-       
+        bomb.state = "explosion"
 
-        bombExplosion();
-        resetPlatforms();
+        
+        
+        bombCraters(platform, counter);
+        
        }
-       console.log(bomb.speed)
+    //    console.log(bomb.speed)
    }
 // }
 
@@ -296,19 +309,73 @@ function resetPlatforms(){
     sun.y = 80
 }
 
-function bombCrater() {
+function bombCraters(platform, counter) {
+    craterNmb += 1
+
+    let craterX = 0
+
+if (bomb.x >= platform.x) {
+
+    craterX = platform.x + (bomb.x - platform.x)
+
+} else if (bomb.x < platform.x) {
+
+    craterX = platform.x - (platform.x - bomb.x)
+}
     
+    // let craterY = platform.y
+
+    craterXs.push(craterX)
+    craterYs.push(counter)
+
+    console.log(craterXs)
+    console.log(craterNmb)
     
-    if (bomb.state = "explosion") {
-        let craterX = bomb.x
+}
+
+// function bombCrater() {
+    
+//    if (bomb.state = "explosion") {
+
+   
+//     craterNmb += 1
+    
+//     let craterX = bomb.x
+//     let craterY = bomb.y
+
+//     craterXs.push(craterX)
+//     craterYs.push(craterY)
+
+//     console.log(craterXs)
+//     //puts a hole in the platform
+    
+
+//    } else {
+//     //do nothing
+//    }
+    
+
+// }
+
+function moveCrater() {
+
+    for (i=0; i < craterXs.length; i++) {
+
+        push();
+        fill(warzoneBg.r, warzoneBg.g, warzoneBg.b)
+        noStroke();
+        ellipse(craterXs[i], platforms[craterYs[i]].y - 20, 50, 50)
+        pop();
+
+    }
+}
+
+function hole() {
     //puts a hole in the platform
     push();
-    fill(warzoneBg.r, warzoneBg.g, warzoneBg.b)
+    fill(255)
     noStroke()
-    ellipse(bomb.x, bomb.y + 20, 50, 50)
+    ellipse(300, 300 + 20, 350, 350)
     pop();
-    } else {
-        //do nothing
-    }
-
+    
 }

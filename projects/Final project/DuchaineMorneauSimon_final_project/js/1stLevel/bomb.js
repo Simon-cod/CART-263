@@ -163,7 +163,7 @@ function swayBomb() {
  */
 function micBombSway() {
 
-    console.log(bomb.shooting.micSpeed)
+    // console.log(bomb.shooting.micSpeed)
 
     if (bomb.shooting.micSpeed < 80){
         //do nothing
@@ -212,7 +212,7 @@ function constrainBombInsideCanvas() {
 function bombExplosion() {
     
     deathCounter += 1
-    bomb.state = "explosion"
+    
 
     //resets everything to it's initial state
     bomb.shooting.direction = "none"

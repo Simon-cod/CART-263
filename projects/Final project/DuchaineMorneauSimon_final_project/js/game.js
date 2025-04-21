@@ -9,7 +9,7 @@ endplatform = {
 
 function end1stGame() {
 
-    if (deathCounter > 20 || bomb.y > 2500) {
+    if (deathCounter > 20) {
         gameState = "2ndTitleScreen"
     }
 }
