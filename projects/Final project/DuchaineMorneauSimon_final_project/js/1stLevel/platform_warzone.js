@@ -240,8 +240,8 @@ let counter = 0
 
 for(let platform of platforms) {
     checkOverlapPlatformBomb(platform, counter);
-    drawPlatform(platform);
-    movePlatform(platform);
+    drawWarzonePlatform(platform);
+    moveWarzonePlatform(platform);
     counter += 1
 }
 
@@ -285,15 +285,15 @@ function checkOverlapPlatformBomb(platform, counter) {
 /**
  * draws the platforns
 */
-// function drawPlatform(platform) {
+function drawWarzonePlatform(platform) {
 
-//     push();
-//     fill(40, 5, 0);
-//     rect(platform.x, platform.y, platform.width, platform.height);
-//     pop();
-// };
+    push();
+    fill(0, 0, 0);
+    rect(platform.x, platform.y, platform.width, platform.height);
+    pop();
+};
 
-function movePlatform(platform){
+function moveWarzonePlatform(platform){
 
 platform.y -= bomb.speed
 
@@ -311,57 +311,3 @@ function resetPlatforms(){
     sun.y = 80
 }
 
-function bombCraters(platform, counter) {
-    craterNmb += 1
-
-    let craterX = 0
-
-    
-    let craterSize = Math.random()*35 + 60
-
-    console.log(craterSize)
-
-if (bomb.x >= platform.x) {
-
-    craterX = platform.x + (bomb.x - platform.x)
-
-} else if (bomb.x < platform.x) {
-
-    craterX = platform.x - (platform.x - bomb.x)
-}
-    
-    // let craterY = platform.y
-
-    craterXs.push(craterX)
-    craterYs.push(counter)
-
-    craterSizes.push(craterSize);
-
-    console.log(craterXs)
-    console.log(craterNmb)
-    console.log(craterSizes)
-    
-}
-
-function moveCrater() {
-
-    for (i=0; i < craterXs.length; i++) {
-
-        push();
-        fill(warzoneBg.r, warzoneBg.g, warzoneBg.b)
-        noStroke();
-        circle(craterXs[i], platforms[craterYs[i]].y - 20, craterSizes[i])
-        pop();
-
-    }
-}
-
-function hole() {
-    //puts a hole in the platform
-    push();
-    fill(255)
-    noStroke()
-    ellipse(300, 300 + 20, 350, 350)
-    pop();
-    
-}

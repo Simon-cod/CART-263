@@ -61,12 +61,12 @@ function run1stGame() {
     background(warzoneBg.r, warzoneBg.g, warzoneBg.b);
     createBackgroundRectangle();
     drawSunWarzone();
-    createPlatforms();
-    moveBackground();
-    end1stGame();
     image(warzoneForegroundImages, 0, bgRec.topY);
+    createPlatforms();
     moveCrater();
     image(warzoneBackgroundImages, 0, bgRec.topY);
+    moveBackground();
+    end1stGame();
     createBomb();
     
     

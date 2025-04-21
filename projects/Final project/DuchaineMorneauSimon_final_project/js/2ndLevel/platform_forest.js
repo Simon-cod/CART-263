@@ -109,7 +109,7 @@ function createForestPlatforms() {
     resetPlatforms();    
 for(let platform of platforms) {
     checkOverlapPlatformHero(platform);
-    drawPlatform(platform);
+    drawForestPlatform(platform);
 }
 }
 
@@ -248,12 +248,12 @@ function fallingOff() {
    
 }
    /**
- * draws the platforns
-*/
-function drawPlatform(platform) {
+//  * draws the platforns
+// */
+function drawForestPlatform(platform) {
 
     push();
-    fill(platform.r, 0, platform.b);
+    fill(0, 0, 0);
     rect(platform.x, platform.y, platform.width, platform.height);
     pop();
 };
@@ -266,17 +266,4 @@ function drawWall(wall) {
     fill(0);
     rect(wall.x, wall.y, wall.width, wall.height);
     pop()
-}
-
-function drawForestCraters() {
-
-    for (i=0; i < craterXs.length; i++) {
-
-        push();
-        fill(forestBg.r, forestBg.g, forestBg.b)
-        noStroke();
-        ellipse(craterXs[i], platforms[craterYs[i]].y - 20, craterSizes[i] + 35, craterSizes[i])
-        pop();
-
-    }
 }
