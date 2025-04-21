@@ -1,8 +1,8 @@
 //color for the background of the first level
 let warzoneBg = {
-    r: 110,
-    g:70,
-    b:50
+    r: 150,
+    g:100,
+    b:60
 }
 
 let bgRec = {
@@ -18,6 +18,7 @@ let craterXs = [] ;//empty array
 let craterYs = []; //empty7 array
 let craterNmb = -1;
 let craterSizes = []; //empty array
+
 
 function createBackgroundRectangle() {
 
@@ -284,13 +285,13 @@ function checkOverlapPlatformBomb(platform, counter) {
 /**
  * draws the platforns
 */
-function drawPlatform(platform) {
+// function drawPlatform(platform) {
 
-    push();
-    fill(platform.r, 0, platform.b);
-    rect(platform.x, platform.y, platform.width, platform.height);
-    pop();
-};
+//     push();
+//     fill(40, 5, 0);
+//     rect(platform.x, platform.y, platform.width, platform.height);
+//     pop();
+// };
 
 function movePlatform(platform){
 
@@ -316,7 +317,7 @@ function bombCraters(platform, counter) {
     let craterX = 0
 
     
-    let craterSize = Math.random()*45 + 30
+    let craterSize = Math.random()*35 + 60
 
     console.log(craterSize)
 
@@ -349,7 +350,7 @@ function moveCrater() {
         push();
         fill(warzoneBg.r, warzoneBg.g, warzoneBg.b)
         noStroke();
-        ellipse(craterXs[i], platforms[craterYs[i]].y - 20, craterSizes[i] + 35, craterSizes[i])
+        circle(craterXs[i], platforms[craterYs[i]].y - 20, craterSizes[i])
         pop();
 
     }

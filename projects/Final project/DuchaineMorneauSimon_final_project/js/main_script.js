@@ -10,12 +10,16 @@
 
 //creates a variable for the state of the game
 let gameState = "1stTitleScreen" //can be "titleScreen", "1stLevel", "2ndLevel" or "gameWon"
+var warzoneForegroundImages;
+var warzoneBackgroundImages;
 
 /**
  * creates the canvas and sets the rectangle mode to center
 */
 function setup() {
 
+    warzoneForegroundImages = loadImage('images/warzone_buildings_foreground.png')
+    warzoneBackgroundImages = loadImage('images/warzone_buildings_background.png')
     createCanvas(1000, 1000)
 
     //sets that all the x and y coordinates for rectangles and cubes determine the position of the center of the shape
@@ -54,13 +58,15 @@ function draw() {
 */
 function run1stGame() {
 
-    background(51)
+    background(warzoneBg.r, warzoneBg.g, warzoneBg.b);
     createBackgroundRectangle();
     drawSunWarzone();
     createPlatforms();
     moveBackground();
     end1stGame();
+    image(warzoneForegroundImages, 0, bgRec.topY);
     moveCrater();
+    image(warzoneBackgroundImages, 0, bgRec.topY);
     createBomb();
     
     
