@@ -2,20 +2,16 @@
 
 Simon Duchaine Morneau
 
-[View this project online](https://simon-cod.github.io/Cart-253/Topics/Variation_Jam/The_Fireball_second_variation%20)
+[View this project online](https://simon-cod.github.io/Cart-263/projects/Final%20project/DuchaineMorneauSimon_final_project)
 
-## Description
+## Artist Statement
 
-You incarnate a deadly bomb. Try to avoid the buildings and be mindful of your speed!
-
-## Credits
-
-This bit should describe what tools were used. For example:
-
-This project uses [p5.js](https://p5js.org).
+This game contains 2 levels, and both are needed to understand the message behind the program. In the first level, "The Warzone", you control a bomb that is actively destroying a city. Your goal is to try to avoid the city's ground by moving the bomb with your voice. But i intentionally made this level very challenging, so that it is almost impossible to win it at first try. I made it that way because when the bomb hits the city's ground, it explodes and leave a crater in the ground and the buildings next to it, showcasing how dangerous the bomb is. This visualisation is crucial for the message of the game, as I will explain later on. As you keep playing, you will destroy the city furthermore, leaving craters everywhere the bomb explodes. There are 2 ways to put an end to this hell. Either you are very skilled and are able to move the bomb through the entirety of the level without hitting the ground and therefore win the first level. Or, you are not good enough and make the bomb explode more than 20 times. In either one of those scenarios, the games goes to the second level called "The Aftermath". The title will become more relevant as you continue playing. The second level is a simple platformer. You move a cube through the platform, trying not to fall out of the canvas. But the real value of this level lies in it's background. Effectively, the background of the second level is very simailar to the first one. In fact, it is in the same setting, only after the war. It is the aftermath of the first level, as the title says. So all that is left are ruins of what was once a city. The buildings are demolished and the grounds are filled with craters. Furthermore, the grounds are at the same location than the first level and the craters are the one you did earlier each time the bomb exploded. So the way that you played the first level will impact the look of the second level. Meaning that if you were very skilled and avoided all of the platforms in the "Warzone", the first level, then the ground will be intact in the "Aftermath". On the other hand, if you controlled the bomb very badly earlier, then the ground will look awful in the second level. And that is why I made the first level purposely challenging and the second level very easy. Because I want most of the players to struggle at first and create a huge amount of craters, so that they can experience the second level and realize how destructive war is. The second level is easy because the gameplay is not what is important, but rather the message and experience of the game. The second level is meant to represent an animal peacefully walking through the ruins of the war. And as you reach the white platform, you win the second level and a poem appears. This poem by Ra Bradbury is what inspired me to make this game. I thought it was important to include it so that the players can truly understand the message behind the game they played. The poem basically explains that, when humans will all have killed themselves for stupid reasons and will have gone extinct, life will go on. Animals will continue to live as if nothing happens, walking into our ruins without even knowing it. We are not the center of the universe and the world won't stop turning after we will be gone. I think it's a beautiful message that should remaind everyone tthat as humans, we need to stay humble and respect others.
 
 ## Attribution
 
-This bit should attribute any assets or other elements used taken from other sources. For example:
+This project uses [p5.js](https://p5js.org).
 
-The fish images were sourced from the [Creative Commons image "Georgia Aquarium Fish"](https://search.creativecommons.org/photos/96f6f770-eac1-488c-8abb-16bee7bcc874) by Mike Johnston which is licensed with CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.
+The background images used in this code were drawn by me on Procreate.
+
+The quote at the end of the game is from Ray Bradbury's novel "Martian Chronicles"

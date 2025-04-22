@@ -24,7 +24,7 @@ function setup() {
     warzoneBackgroundImage = loadImage('images/1stLevel/warzone_buildings_background.png');
     forestForegroundImage = loadImage('images/2ndLevel/forest_buildings_foreground.png');
     forestBackgroundImage = loadImage('images/2ndLevel/forest_buildings_background.png'); 
-    createCanvas(1000, 2000)
+    createCanvas(1000, 1000)
 
     //sets that all the x and y coordinates for rectangles and cubes determine the position of the center of the shape
     rectMode(CENTER)

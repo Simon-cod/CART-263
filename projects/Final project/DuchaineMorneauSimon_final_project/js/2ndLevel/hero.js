@@ -68,7 +68,6 @@ function drawHero() {
 */
 function moveHero() {
 
-    
     //changes the hero speed depending on it's state
     if (hero.speed.state === "fast") {
         hero.speed.x = 7;
@@ -101,7 +100,7 @@ function moveHero() {
     }
 
     //resets the hero if he falls off canvas
-    if (hero.y > 2000) {
+    if (hero.y > 1000) {
         hero.x = hero.startingX
         hero.y = hero.startingY
     }
