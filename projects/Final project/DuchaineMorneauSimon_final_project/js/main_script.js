@@ -10,17 +10,21 @@
 
 //creates a variable for the state of the game
 let gameState = "1stTitleScreen" //can be "titleScreen", "1stLevel", "2ndLevel" or "gameWon"
-var warzoneForegroundImages;
-var warzoneBackgroundImages;
+var warzoneForegroundImage;
+var warzoneBackgroundImage;
+var forestForegroundImage;
+var forestBackgroundImage;
 
 /**
  * creates the canvas and sets the rectangle mode to center
 */
 function setup() {
 
-    warzoneForegroundImages = loadImage('images/warzone_buildings_foreground.png')
-    warzoneBackgroundImages = loadImage('images/warzone_buildings_background.png')
-    createCanvas(1000, 1000)
+    warzoneForegroundImage = loadImage('images/1stLevel/warzone_buildings_foreground.png');
+    warzoneBackgroundImage = loadImage('images/1stLevel/warzone_buildings_background.png');
+    forestForegroundImage = loadImage('images/2ndLevel/forest_buildings_foreground.png');
+    forestBackgroundImage = loadImage('images/2ndLevel/forest_buildings_background.png'); 
+    createCanvas(1000, 2000)
 
     //sets that all the x and y coordinates for rectangles and cubes determine the position of the center of the shape
     rectMode(CENTER)
@@ -59,13 +63,13 @@ function draw() {
 function run1stGame() {
 
     background(warzoneBg.r, warzoneBg.g, warzoneBg.b);
-    createBackgroundRectangle();
+    create1stBackgroundRectangle();
     drawSunWarzone();
-    image(warzoneForegroundImages, 0, bgRec.topY);
+    image(warzoneForegroundImage, 0, bgRec.topY);
     createPlatforms();
     moveCrater();
-    image(warzoneBackgroundImages, 0, bgRec.topY);
-    moveBackground();
+    image(warzoneBackgroundImage, 0, bgRec.topY);
+    move1stBackground();
     end1stGame();
     createBomb();
     
@@ -75,12 +79,14 @@ function run1stGame() {
 
 function run2ndGame() {
 
-    background(forestBg.r, forestBg.g, forestBg.b)
+    background(forestBg.r, forestBg.g, forestBg.b);
     drawSunForest();
+    image(forestForegroundImage, 0, 0);
     createForestWalls();
     createForestPlatforms();
     gameMechanics();
     drawForestCraters();
+    image(forestBackgroundImage, 0, 0);
     drawHero();
     moveHero();
     heroJump();
@@ -107,6 +113,7 @@ function keyPressed() {
     } else if 
     //Starts the game when spacebar is pressed
      (keyCode === 32 && gameState === "1stTitleScreen") { //Spacebar
+       resetPlatforms();
         gameState = "1stLevel"
     } else if (keyCode === 32 && gameState === "1stLevel") { //Spacebar
         gameState = "2ndTitleScreen"

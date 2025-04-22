@@ -61,12 +61,6 @@ function drawHero() {
     rect (hero.x, hero.y, hero.width, 30);
     pop();
 
-    // push();
-    // fill(0, 75, 0);
-    // noStroke();
-    // rect (hero.x + 20, hero.y + 5, 20, 18);
-    // pop();
-
 }
 
 /**
@@ -74,6 +68,7 @@ function drawHero() {
 */
 function moveHero() {
 
+    
     //changes the hero speed depending on it's state
     if (hero.speed.state === "fast") {
         hero.speed.x = 7;
@@ -106,7 +101,7 @@ function moveHero() {
     }
 
     //resets the hero if he falls off canvas
-    if (hero.y > 1000) {
+    if (hero.y > 2000) {
         hero.x = hero.startingX
         hero.y = hero.startingY
     }

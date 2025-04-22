@@ -20,15 +20,15 @@ let craterNmb = -1;
 let craterSizes = []; //empty array
 
 
-function createBackgroundRectangle() {
+function create1stBackgroundRectangle() {
 
-    realX = bgRec.topX + 500
-    realY = bgRec.topY + 1000
+    firstRealX = bgRec.topX + 500
+    firstRealY = bgRec.topY + 1000
 
     push()
     fill(warzoneBg.r, warzoneBg.g, warzoneBg.b);
     noStroke();
-    rect(realX, realY, bgRec.w, bgRec.h);
+    rect(firstRealX, firstRealY, bgRec.w, bgRec.h);
     pop()
 
     push();
@@ -253,7 +253,7 @@ if (bomb.state === "explosion") {
 
 }
 
-function moveBackground(){
+function move1stBackground(){
     bgRec.topY -= bomb.speed
     sun.y -= bomb.speed
 }

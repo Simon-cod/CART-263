@@ -5,7 +5,6 @@ let forestBg = {
     b: 100
 }
 
-
 //Creates an array for the walls of the rectangles/ground/platform
 let walls = [ 
     {
@@ -24,14 +23,6 @@ let walls = [
         width: 8,
         height: 14.8
     },
-    // {
-    //     x: 300,
-    //     y: 890,
-    //     //the amount of green of the walls
-    //     g: 100,
-    //     width: 8,
-    //     height: 56
-    // },
     {
         x: 578,
         y: 820,
@@ -99,7 +90,6 @@ let walls = [
     }
    
 ]
-
 
 /**
  * Creates the platforms
