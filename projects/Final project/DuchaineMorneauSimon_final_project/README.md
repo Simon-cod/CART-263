@@ -2,7 +2,7 @@
 
 Simon Duchaine Morneau
 
-[View this project online](https://simon-cod.github.io/Cart-263/projects/Final%20project/DuchaineMorneauSimon_final_project)
+[View this project online](https://simon-cod.github.io/CART-263/project/Final%20project/DuchaineMorneauSimon_final_project)
 
 ## Artist Statement
 
