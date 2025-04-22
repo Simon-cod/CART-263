@@ -11,11 +11,10 @@ let bomb = {
     originalX: 100,
     originalY: 100,
     state: "shooting",
+    initialSpeed: 0.1,
     speed: 0.1,
     gravity: 0.01,
     shooting: {
-        initialSpeed: 15,
-        speed: 15, 
         micSpeed: undefined,
         direction: "none",
         acceleration: 0.44,
@@ -182,10 +181,7 @@ function bombExplosion() {
     
     //resets everything to it's initial state
     bomb.shooting.direction = "none"
-    bomb.y = bomb.originalY;
     bomb.x = bomb.originalX;
-    bomb.shooting.speed = bomb.shooting.initialSpeed
-    bomb.speed = 0.1
-
+    bomb.speed = bomb.initialSpeed
     bomb.state = "shooting"
 }

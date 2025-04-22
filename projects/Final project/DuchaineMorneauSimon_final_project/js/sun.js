@@ -4,9 +4,17 @@ let sun = {
     x: 200,
     y: 80,
     size: 220,
+    //colors of the sun
+    warzone: {
     r: 200,
     g: 180,
-    b: 160,
+    b: 160
+    },
+    forest: {
+    r: 200,
+    g: 255,
+    b: 200
+    }
 }
 
 /**
@@ -15,7 +23,7 @@ let sun = {
 function drawSunWarzone() {
     push();
     noStroke();
-    fill(sun.r, sun.g, sun.b);
+    fill(sun.warzone.r, sun.warzone.g, sun.warzone.b);
     circle(sun.x, sun.y, sun.size);
     pop();
 }
@@ -26,7 +34,7 @@ function drawSunWarzone() {
 function drawSunForest() {
     push();
     noStroke();
-    fill(200, 255, 200);
+    fill(sun.forest.r, sun.forest.g, sun.forest.b);
     circle(sun.x, sun.y, sun.size);
     pop();
 }

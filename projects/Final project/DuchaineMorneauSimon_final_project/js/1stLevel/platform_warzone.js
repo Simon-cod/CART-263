@@ -16,13 +16,9 @@ let bgRec = {
 
 var realX; //center X of the bg rectangle
 var realY; //center Y of the bg rectangle
-let craterXs = [] ;//empty array
-let craterYs = []; //empty7 array
-let craterNmb = -1;
-let craterSizes = []; //empty array
 
 
-//Creates an array for the platforms
+//Creates an array for all of the platforms
 let platforms = [
 
     {
@@ -282,5 +278,6 @@ function resetPlatforms(){
     //resets the background and the sun to their original height
     bgRec.topY = 0
     sun.y = 80
+    bomb.speed = bomb.initialSpeed
 }
 

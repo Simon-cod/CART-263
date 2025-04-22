@@ -1,64 +1,8 @@
 
-//creates a vraiable for the ending platform
-endplatform = {
-    x: 960,
-    y: 392.5,
-    width: 40,
-    height: 10,
-}
-
-function end1stGame() {
-
-    if (deathCounter > 20) {
-        gameState = "2ndTitleScreen"
-    }
-}
 /**
- * regroups all the functions about the game
+ * draws the First Level titleScreen (Warzone)
 */
-function gameMechanics() {
-    drawEndPlatform();
-    checkOverlapHeroEndPlatform();
-    
-}
-
-/**
- * draws the ending platforn
-*/
-function drawEndPlatform() {
-    push;
-    noStroke();
-    fill (250, 250, 250);
-    rect(endplatform.x, endplatform.y, endplatform.width, endplatform.height);
-
-}
-
-/**
- * makes you win the game if the hero touches the end platform
-*/
-function checkOverlapHeroEndPlatform(){
-
-
-    // checking if each side of the platforms overlap with the hero
-    if (
-       endplatform.y + endplatform.height / 2 >= hero.y - hero.h / 2 && // rect1 bottom and hero top
-       endplatform.y - endplatform.height / 2 <= hero.y + hero.h / 2 &&   // rect1 top and hero bottom
-       endplatform.x + endplatform.width / 2 >= hero.x - hero.w / 2 && // rect1 right and hero left
-       endplatform.x - endplatform.width / 2 <= hero.x + hero.w / 2 // rect1 left and hero right 
-       ){
-   
-        gameState = "gameWon"   
-        heroReset();
-        craterXs = [];
-        craterYs = [];
-   
-       }
-   }
-
-/**
- * draws the first titleScreen
-*/
-function firstTitle() {
+function firstLevelTitle() {
 
     background(warzoneBg.r, warzoneBg.g, warzoneBg.b);
     push();
@@ -106,9 +50,9 @@ function firstTitle() {
 }
 
 /**
- * draws the second titleScreen
+ * draws the Second Level TtleScreen (Aftermath)
 */
-function secondTitle() {
+function secondLevelTitle() {
 
     background(100, 155, 100);
     push();
@@ -163,11 +107,11 @@ function secondTitle() {
 }
 
 /**
- * draws the Winning Screen
+ * draws the Winning Screen and shows Ray Bradbury's poem
 */
-function gameWon() {
+function winningScreen() {
     
-    background(100, 155, 100);
+    background(forestBg.r, forestBg.g, forestBg.b);
 
 
     push();

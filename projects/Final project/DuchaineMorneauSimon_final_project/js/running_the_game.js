@@ -1,95 +1,101 @@
 /**
- * The Fireball (2nd variation)
+ * The Warzone
  * Simon Duchaine Morneau
  * 
- * It's now time to be the villain! Fly across the room as a fireball to kill the hero, but be careful of the deadly platforms and your dangerously increasing speed.
- */
-
+ * Control a bomb with your voice and try to keep the city as intact as you can by avoiding the platforms. Otherwise, youu explode. Then, walk peacefully through the war ruins.
+*/
 "use strict";
 
 
 //creates a variable for the state of the game
-let gameState = "1stTitleScreen" //can be "titleScreen", "1stLevel", "2ndLevel" or "gameWon"
+let gameState = "1stTitleScreen" //can be "1stTitleScreen", "1stLevel", "2ndTitleScreen" "2ndLevel" or "WinningScreen"
+//creates a variable for each building image
 var warzoneForegroundImage;
 var warzoneBackgroundImage;
 var forestForegroundImage;
 var forestBackgroundImage;
 
 /**
- * creates the canvas and sets the rectangle mode to center
+ * creates the canvas, load thee building images and sets the rectangle mode to center
 */
 function setup() {
 
+    //load the image of each building images
     warzoneForegroundImage = loadImage('images/1stLevel/warzone_buildings_foreground.png');
     warzoneBackgroundImage = loadImage('images/1stLevel/warzone_buildings_background.png');
     forestForegroundImage = loadImage('images/2ndLevel/forest_buildings_foreground.png');
     forestBackgroundImage = loadImage('images/2ndLevel/forest_buildings_background.png'); 
+
+    //creates the canvas
     createCanvas(1000, 1000)
 
-    //sets that all the x and y coordinates for rectangles and cubes determine the position of the center of the shape
+    //sets the mode so that all the x and y coordinates for rectangles and cubes determine the position of the center of the shape
     rectMode(CENTER)
 
 }
 
 
 /**
- * either shows the title, runs the game or show the ending title depending on the state of the game
+ * Either shows the 1st or 2nd Title, run the 1st or 2nd Level or show the Winning Screen depending on the state of the game
 */
 function draw() {
 
     if (gameState === "1stTitleScreen") {
-        //loads the title screen
-        firstTitle();
+        //loads the first title screen
+        firstLevelTitle();
     }else if (gameState === "2ndTitleScreen") {
+       //sets the explosion counter to 0
         deathCounter = 0;
-        //loads the game
-        secondTitle();
+        //loads the second title screen
+        secondLevelTitle();
     }else if (gameState === "1stLevel") {
-        //loads the game
-        run1stGame();
+        //loads the first level
+        run1stLevel();
     } else if (gameState === "2ndLevel") {
-        //loads the game
-        run2ndGame();
+        //loads the second level
+        run2ndLevel();
     } else if (gameState === "gameWon") {
-        //loads the game over screen
-        gameWon();
+        //loads the winning screen
+        winningScreen();
     }
 
 
 }
 /**
- * Runs the game
+ * Runs the 1st level (Warzone)
 */
-function run1stGame() {
+function run1stLevel() {
 
     background(warzoneBg.r, warzoneBg.g, warzoneBg.b);
     create1stBackgroundRectangle();
     drawSunWarzone();
-    image(warzoneForegroundImage, 0, bgRec.topY);
+    image(warzoneForegroundImage, 0, bgRec.topY); //loads the foreground building images of the first level (behind the craters)
     createPlatforms();
-    moveCrater();
-    image(warzoneBackgroundImage, 0, bgRec.topY);
+    drawAndMoveCraters();
+    image(warzoneBackgroundImage, 0, bgRec.topY); //loads the background building images of the first level (in front of the craters)
     move1stBackground();
-    end1stGame();
     createBomb();
-    
-    
-    
+    end1stLevel();
+
 }
 
-function run2ndGame() {
+/**
+ * Runs the 2nd level (The Aftermath)
+*/
+function run2ndLevel() {
 
     background(forestBg.r, forestBg.g, forestBg.b);
     drawSunForest();
-    image(forestForegroundImage, 0, 0);
+    image(forestForegroundImage, 0, 0);  //loads the foreground building images of the second level (behind the craters)
     createForestWalls();
     createForestPlatforms();
-    gameMechanics();
-    drawForestCraters();
-    image(forestBackgroundImage, 0, 0);
+    drawAndMoveCraters();
+    image(forestBackgroundImage, 0, 0); //loads the background building images of the second level (in front of the craters)
     drawHero();
     moveHero();
     heroJump();
+    end2ndLevel();
+
 }
 
 
@@ -111,22 +117,23 @@ function keyPressed() {
     } else if (keyCode === 16) { //shift key
         hero.speed.state = "fast"
     } else if 
+
     //Starts the game when spacebar is pressed
      (keyCode === 32 && gameState === "1stTitleScreen") { //Spacebar
-       resetPlatforms();
         gameState = "1stLevel"
     } else if (keyCode === 32 && gameState === "1stLevel") { //Spacebar
         gameState = "2ndTitleScreen"
     } else if (keyCode === 32 && gameState === "2ndTitleScreen") { //Spacebar
+        resetPlatforms();
         gameState = "2ndLevel"
     } //Starts the game when the game is won
     else if (keyCode === 32 && gameState === "2ndLevel") { //Spacebar
         gameState = "1stTitleScreen"
-        heroReset();
-        craterXs = [];
-        craterYs = []
     } else if (keyCode === 32 && gameState === "gameWon"){ //Spacebar
+        
+        resetEverything();
         gameState = "1stTitleScreen"
+        
     }
 }
 
@@ -137,7 +144,6 @@ function keyReleased() {
     } else if (keyCode == 39) { //right arrow
         hero.direction = "none"
     } 
-
     if (keyCode === 16) { //shift key
         hero.speed.state = "normal"
     }

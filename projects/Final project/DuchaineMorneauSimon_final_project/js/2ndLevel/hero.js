@@ -1,9 +1,3 @@
-/**
- * The Hero (1st variation)
- * Simon Duchaine Morneau
- * 
- * Control a hero and move accross the room by jumping from one platform to another. But don't forget to avoid the deadly lava!
- */
 
 "use strict";
 
@@ -23,6 +17,7 @@ let hero = {
         state: "normal",
         x: 5,
     },
+    //when the hero jumps
     jump: {
         state: "no",
         direction: "none",
@@ -38,16 +33,6 @@ let hero = {
     direction: "none", //which way is the cube going
     action: "walking", //can be walking, jumping or slashing
 }
-
-/**
- * resets the cube to it's starting position when it dies
- */
-function heroDeath() {
-    hero.x = 40;
-    hero.y = 785;
-    hero.jump.state = "no"
-}
-
 
 /**
  * Draws the hero
@@ -89,7 +74,6 @@ function moveHero() {
         hero.x -= hero.speed.x; //goes left
     }
 
-    
     //constrains the hero to go off the canvas on the right
     if (hero.x > width - hero.size/2) {
         hero.x = width - hero.size/2 ;
@@ -104,7 +88,6 @@ function moveHero() {
         hero.x = hero.startingX
         hero.y = hero.startingY
     }
-
 }
 
 
@@ -147,6 +130,40 @@ function heroJump() {
             hero.deceleration.y = 0.3
         }       
     } 
+}
+
+/**
+* What happens if the hero jumps off from a platform
+*/
+function jumpingOff() {
+
+    //sets the hero to the same state than the fall of a jump
+    hero.jump.y = hero.jump.maxY - 1
+    hero.jump.direction = "down"
+   
+}
+
+/**
+* what happens if the hero falls off from a platform
+*/
+function fallingOff() {
+
+    //sets the hero to the same state than the fall of a jump but with a smaller starting speed
+    hero.jump.state = "active";
+    hero.deceleration.y = 0.55
+    hero.jump.y = hero.jump.maxY
+    hero.jump.speed = 0.3
+   
+}
+
+
+/**
+ * resets the cube to it's starting position when it dies
+ */
+function heroDeath() {
+    hero.x = 40;
+    hero.y = 785;
+    hero.jump.state = "no"
 }
 
 /**

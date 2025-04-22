@@ -1,5 +1,9 @@
-//creates variable for the crater color
-var warzoneCraterColor;
+//creates variable for the craters
+var craterColor;
+let craterXs = [] ;//empty array
+let craterYs = []; //empty array
+let craterNmb = -1;
+let craterSizes = []; //empty array
 
 /**
  * Take the position and size of the bomb crater
@@ -40,18 +44,24 @@ if (bomb.x >= platform.x) {
 /**
  * Draws the crater and make them move with the background
  */
-function moveCrater() {
+function drawAndMoveCraters() {
 
-warzoneCraterColor = color(warzoneBg.r, warzoneBg.g, warzoneBg.b)
+//changes the crater colors depending on the game level
+if (gameState === "1stLevel") {
+//sets teh color to the bg colors of the first level
+craterColor = color(warzoneBg.r, warzoneBg.g, warzoneBg.b)
+} else if (gameState === "2ndLevel") {
+craterColor = color(forestBg.r, forestBg.g, forestBg.b)    
+}
 
 //reduce slightly the opacity of the craters colors
-warzoneCraterColor.setAlpha(200)
+craterColor.setAlpha(200)
 
 //loop through all of the craters in the carterXs array and draws them
     for (i=0; i < craterXs.length; i++) {
 
         push();
-        fill(warzoneCraterColor)
+        fill(craterColor)
         noStroke();
         circle(craterXs[i], platforms[craterYs[i]].y - 20, craterSizes[i])
         pop();
