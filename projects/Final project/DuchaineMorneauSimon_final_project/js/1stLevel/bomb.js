@@ -22,27 +22,30 @@ let bomb = {
     },
 }
 
+//counts which platform the loop is at
 let counter = 0
 
+//counts how many explosions happened as of now
 let deathCounter = 0
+
+
 
 try {
 
     getMicrophoneInput();
 
       async function getMicrophoneInput() {
-      // console.log("here we are ");
    
      window.AudioContext = window.AudioContext || window.webkitAudioContext;
      let audioContext = new AudioContext(); //using the web audio library
    
-    
       //returns a MediaStreamAudioSourceNode.
     let audioStream = await navigator.mediaDevices.getUserMedia({
     audio: true,
     });
     console.log("microphone on")
-// console.log(audioStream)
+
+
 //pass the microphone input to the web audio API
 let microphoneIn = audioContext.createMediaStreamSource(audioStream);
 const filter = audioContext.createBiquadFilter();
@@ -52,38 +55,38 @@ microphoneIn.connect(filter);
 //use the analyzer object to get some properties ....
 filter.connect(analyser);
 analyser.fftSize = 32;
-let frequencyData = new Uint8Array(analyser.frequencyBinCount);
+let frequencyData = new Uint8Array(analyser.frequencyBinCount);      
 
-//  console.log(frequencyData)
+  
+    //calls the animateSound function
+    requestAnimationFrame(animateSound);
 
-      
-
-      requestAnimationFrame(animateSound);
-
+      /**
+    * Asks for the website to access the microphone and records it's frequency
+    */
       function animateSound() {
 
         analyser.getByteFrequencyData(frequencyData);
         // console.log(frequencyData)
 
+        //creates a variable to nmerize the frequency
         let soundVariable = 0;
+        //creates a variable to sum all of the frequency data
         let sum = 0;
    
+        //goes through each element of the frequency data and adds them together
         for (let i = 0; i < frequencyData.length; i++) {
           sum += frequencyData[i];
         }
+        //creates an average of the frequency data
         soundVariable = sum / frequencyData.length;
 
+        //multiply the average so that it can be used for the gameplay
         bomb.shooting.micSpeed = soundVariable * 8
 
         requestAnimationFrame(animateSound); 
 
-       
-
       }
-
-
-      
-
     
   }
 
@@ -104,7 +107,6 @@ function createBomb() {
 }
 
 
-
 /**
  * Draws the bomb
  */
@@ -115,6 +117,7 @@ function drawBomb() {
     ellipse(bomb.x, bomb.y, bomb.w, 70)
     pop();
 
+    //the main body
     push();
     noStroke();
     fill(bomb.r, bomb.g, bomb.b);
@@ -127,6 +130,7 @@ function drawBomb() {
     ellipse(bomb.x, bomb.y - 30, bomb.w, 10)
     pop();
 
+    //the orange line
     push();
     noStroke();
     fill(180, 100, 20);
@@ -138,61 +142,24 @@ function drawBomb() {
 /**
  * Makes the bomb sway depending on the amount of frequencies (of the microphone)
  */
-function swayBomb() {
-
-
-        if (bomb.shooting.direction === "none"){
-        //do nothing
-        bombComeBack();
-        } else if (bomb.shooting.direction === "right"){
-
-        bomb.x += bomb.shooting.speed
-
-        counter += 1
-
-        console.log("counter = " + counter)
-
-        } else if (bomb.shooting.direction === "left"){
-       bomb.x -= bomb.shooting.speed
-
-        }
-}
-
-/**
- * Makes the bomb sway depending on the amount of frequencies (of the microphone)
- */
 function micBombSway() {
 
-    // console.log(bomb.shooting.micSpeed)
-
+    //makes the bomb jitter less if the volume is low
     if (bomb.shooting.micSpeed < 80){
         //do nothing
     } else if (bomb.shooting.micSpeed >= 80){
+    //makes the bomb go more to the right the more you speak loudly
     bomb.x = bomb.originalX + bomb.shooting.micSpeed
     }
 }
 
 
 /**
- * Makes the initial bomb bounce
+ * makes the bomb spped accelerate overtime
  */
 function bombSpeed() {
     
         bomb.speed += bomb.gravity
-        // bomb.y += bomb.speed
-}
-
-/**
- * Makes the bomb come back to it's original point
- */
-function bombComeBack() {
-    if(bomb.x > 200) {
-        bomb.x -= bomb.shooting.speed
-    }else if(bomb.x < 200) {
-        bomb.x += bomb.shooting.speed
-    } else {
-        //do nothing
-    }
 }
 
 /**
@@ -207,13 +174,12 @@ function constrainBombInsideCanvas() {
 }
 
 /**
- * makes the bomb reset at the top of the canvas
+ * makes the bomb explose and reset at the top of the canvas
  */
 function bombExplosion() {
     
     deathCounter += 1
     
-
     //resets everything to it's initial state
     bomb.shooting.direction = "none"
     bomb.y = bomb.originalY;
